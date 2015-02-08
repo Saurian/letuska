@@ -1,0 +1,40 @@
+{
+    "name": "pixman/super-letuska",
+    "description": "Air tickets reservation",
+    "minimum-stability": "dev",
+    "keywords": ["devrun"],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Pixman s.r.o.",
+            "email": "podpora@pixman.cz"
+        }
+    ],
+    "require": {
+        "nette/nette": "~2.2.0",
+        "nette/sandbox": "v2.2.6",
+        "kdyby/doctrine": "v2.1.0",
+        "kdyby/translation": "v2.0.3",
+        "kdyby/curl": "v2.2.0",
+        "kdyby/forms-replicator": "dev-master",
+        "flame/framework": "dev-master",
+        "flame/module-installer": "@dev",
+        "flame/modules": "@dev",
+        "janmarek/webloader": "2.2.0",
+        "dg/adminer-custom": "~1.5.0",
+        "sakren/nette-menu": "1.0.4",
+        "symfony/property-access": "~2.5",
+        "knplabs/doctrine-behaviors": "1.1.x-dev",
+        "zenify/doctrine-behaviors": "v1.2.1",
+        "wsdl2phpgenerator/wsdl2phpgenerator": "3.0.0",
+        "goetas/xsd-reader": "dev-master",
+        "goetas/xsd2php": "dev-master",
+        "goetas/xml-xsd-encoder": "2.0.1",
+        "goetas/xmldom": "1.0.3"
+
+
+    },
+    "require-dev": {
+        "nette/tester": "~1.2.0"
+    }
+}

@@ -1,0 +1,70 @@
+{**
+ * Šablona titulní stránky.
+ *
+ * @copyright  Copyright (c) 2015 Pavel Paulík
+ * @package    Letuska
+ *
+ * @param lowFare    $flightDetail
+ * @param AirPricingSolution    $airPricingSolution
+ * @param Presenter  $presenter      presenter
+ *}
+
+
+{block content}
+<p class="pull-right visible-xs">
+	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+</p>
+<div class="jumbotron">
+	{snippet form}
+	{control lowFareSearchForm}
+	{/snippet}
+	<h1>Letuska → devel</h1>
+	<p>Bratislava => BTS | Praha => PRG | Atlanta => ATL</p>
+</div>
+
+
+	<div class="row">
+
+		<div class="bs-example" data-example-id="animated-progress-bar">
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%"><span class="sr-only">45% Complete</span></div>
+			</div>
+			<button type="button" class="btn btn-default bs-docs-activate-animated-progressbar active" data-toggle="button" aria-pressed="true" autocomplete="off">Toggle animation</button>
+		</div>
+
+		<div class="progress">
+			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+				<span class="sr-only">45% Complete</span>
+			</div>
+		</div>
+
+
+		{snippet result}
+		{ifset $flightDetails}
+		<div n:foreach="$flightDetails as $flightDetail" class="col-6 col-sm-6 col-lg-4">
+			<h2>{$flightDetail['origin']} → {$flightDetail['destination']}</h2>
+			<p>departureTime => {$flightDetail['departureTime']}</p>
+			<p>arrivalTime => {$flightDetail['arrivalTime']}</p>
+			<p>flight => {$flightDetail['carrier']} {$flightDetail['flightNumber']}</p>
+			<p>{$flightDetail['flightType']}</p>
+			<p>flightTime => {if $flightDetail['flightTime']->d}{$flightDetail['flightTime']->d}d {/if}{$flightDetail['flightTime']->h}h {$flightDetail['flightTime']->i}min</p>
+			<p>totalPrice => {$flightDetail['airPricingSolution']->totalPrice}</p>
+			<p><a class="btn btn-default" href="#" role="button">View details »</a>
+			</p>
+		</div>
+		{/ifset}
+		{/snippet}
+
+
+</div>
+
+
+{/block}
+
+{block scripts}
+{include parent}
+{/block}
+
+
+{block head}
+{/block}
