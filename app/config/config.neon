@@ -1,0 +1,65 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+parameters:
+#	system:
+#		location: 'https://emea.copy-webservices.travelport.com/B2BGateway/connect/uAPI/AirService'
+#		login: 'Universal API/uAPI8453149202-9bd3000c'
+#		targetbranch: 'P7033136'
+#		password: 'Jm5$7Q%nt-'
+#		targetbranch: 'P7005646'
+#		pcc: '79YE'
+
+	airClientManager:
+		options:
+			wsdl_location: 'https://emea.universal-api.pp.travelport.com/B2BGateway/connect/uAPI/AirService'
+			wsdl_url: '%appDir%/modules/travelport-module/Resources/galileo/air_v29_0/Air.wsdl'
+			wsdl_login: 'Universal API/uAPI7007419429-39310e89'
+			wsdl_password: 'aA{6X8w%/c'
+			targetbranch: 'P7033136'
+			authorizedBy: 'user'
+			traceId: 'trace'
+			pcc: '3Z1Q'
+
+
+php:
+	date.timezone: Europe/Prague
+
+nette:
+	application:
+		errorPresenter: Error
+		mapping:
+			*: App\*Module\Presenters\*Presenter
+
+	session:
+		expiration: 14 days
+
+	debugger:
+		email: 'pavel.paulik@seznam.cz'
+
+
+services:
+	- App\RouterFactory
+	- CmsModule\TravelService\RequestFormMapper
+	- TravelPortModule\Air\LowFareSearchReq
+	router: @App\RouterFactory::createRouter
+
+	managers.AirClientManager: TravelPortModule\Managers\AirClientManager(%airClientManager.options%)
+
+	forms.availabilitySearchForm:
+		implement: AppModule\Forms\IAvailabilitySearchFormFactory
+		setup:
+			- create
+
+	forms.lowFareSearchForm:
+		implement: AppModule\Forms\ILowFareSearchFormFactory
+		setup:
+			- create
+			- bootstrap3Render
+
+extensions:
+	replicator: Kdyby\Replicator\DI\ReplicatorExtension
+	payu: HostBox\Bridge\PayU\Extension

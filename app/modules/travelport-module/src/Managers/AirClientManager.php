@@ -66,6 +66,14 @@ class AirClientManager extends TravelPortSoapClient
     public function lowFareSearchReq(LowFareSearchReq $lowFareSearchReq)
     {
         $this->setUseCache(true);
+
+        $pcc = $lowFareSearchReq->setPCC();
+        $q  = $pcc->addPointOfSale();
+        $q->setPseudoCityCode('3Z1Q')->setProviderCode('1G');
+//        $pcc->addPointOfSale()->setPseudoCityCode('3Z1Q');
+//        $pcc->setOverridePCC()->setPseudoCityCode('3Z1Q');
+
+
         $this->__soapCall('service', array($lowFareSearchReq), array(self::CUSTOM_GENERATE => true));
 
         $responseO = new LowFareSearchRsp();
@@ -77,7 +85,11 @@ class AirClientManager extends TravelPortSoapClient
                 $responseArray[self::KEY_FAULT][self::KEY_FAULT_CODE] == 'Server.ValidationException' ||
                 $responseArray[self::KEY_FAULT][self::KEY_FAULT_CODE] == 'Server.Business'
             ) {
-                throw new InvalidArgumentException($responseArray[self::KEY_FAULT][self::KEY_FAULT_STRING]);
+                $detailError = isset($responseArray[self::KEY_FAULT]['detail']['ErrorInfo'])
+                    ? implode(', ',$responseArray[self::KEY_FAULT]['detail']['ErrorInfo'])
+                    : '';
+
+                throw new InvalidArgumentException($responseArray[self::KEY_FAULT][self::KEY_FAULT_STRING] . " $detailError");
 
             } else {
                 throw new InvalidArgumentException($responseArray[self::KEY_FAULT][self::KEY_FAULT_STRING]);
@@ -323,6 +335,20 @@ class AirClientManager extends TravelPortSoapClient
 
         $flightDetailsRsp = new FlightDetailsRsp;
         return $flightDetailsRsp;
+    }
+
+
+    public static function getDestinations()
+    {
+        return array(
+            'PRG' => 'Praha',
+            'BTS' => 'Bratislava',
+            'ATL' => 'Atlanta',
+            'PBH' => 'Paro',
+            'SYD' => 'Sydney',
+            'YXU' => 'Londýn',
+        );
+
     }
 
 

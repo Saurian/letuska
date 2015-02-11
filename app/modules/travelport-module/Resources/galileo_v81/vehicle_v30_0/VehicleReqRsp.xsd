@@ -9,7 +9,7 @@
         <xs:documentation>(c) Travelport GDS 2008 All rights reserved. Proprietary Information of Travelport GDS.</xs:documentation>
     </xs:annotation>
     <xs:import namespace="http://www.travelport.com/schema/common_v30_0" schemaLocation="../common_v30_0/CommonReqRsp.xsd"/>    
-    <xs:include schemaLocation="../vehicle_v30_0/Vehicle.xsd"/>
+    <xs:include schemaLocation="Vehicle.xsd"/>
     <xs:element name="VehicleSearchAvailabilityReq">
       <xs:complexType>
          <xs:complexContent>

@@ -28,10 +28,11 @@
         "zenify/doctrine-behaviors": "v1.2.1",
         "wsdl2phpgenerator/wsdl2phpgenerator": "3.0.0",
         "goetas/xsd-reader": "dev-master",
-        "goetas/xsd2php": "dev-master",
         "goetas/xml-xsd-encoder": "2.0.1",
-        "goetas/xmldom": "1.0.3"
-
+        "goetas/xmldom": "1.0.3",
+        "phpunit/phpunit": "3.7.*",
+        "phpunit/phpunit-selenium": ">=1.2",
+        "hostbox/api-payu-nette-bridge": "~1.0.0"
 
     },
     "require-dev": {

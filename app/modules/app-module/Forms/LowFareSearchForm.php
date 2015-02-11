@@ -28,6 +28,8 @@ use Nette\Forms\Controls\TextBase;
 use Nette\Forms\Rendering\DefaultFormRenderer;
 use Nette\Object;
 use Nette\Utils\ArrayHash;
+use Tracy\Debugger;
+use TravelPortModule\Managers\AirClientManager;
 use TravelPortModule\NotSupportedException;
 
 
@@ -83,33 +85,24 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
     /** @return LowFareSearchForm */
     function create()
     {
+        $this->addHidden('targetBranch');
+        $this->addHidden('authorizedBy');
+        $this->addHidden('traceId');
 
-        $this->addText('targetBranch', 'targetBranch')->setDefaultValue('P7005646');
-        $this->addText('authorizedBy', 'authorizedBy')->setDefaultValue('user');
-        $this->addText('traceId', 'traceId')->setDefaultValue('trace');
+        $this->addContainer('overridePCC')->addHidden('pseudoCityCode', 'UAPI');
 
-        $this->addContainer('billingPointOfSaleInfo')->addText('originApplication', 'OriginApplication')->setDefaultValue('UAPI');
+        $this->addContainer('billingPointOfSaleInfo')->addHidden('originApplication', 'UAPI');
 
         $air = $this->addDynamic('searchAirLeg', function (\Nette\Forms\Container $container) {
             /** @var LowFareSearchForm $container */
             $searchOrigin = $container->addDynamic('searchOrigin', function(\Nette\Forms\Container $_searchOrigin) {
                 $_searchOrigin->addContainer('airport')->addSelect('code', 'Source',
-                    array('PRG' => 'Praha',
-                          'BTS' => 'Bratislava',
-                          'ATL' => 'Atlanta',
-                          'PBH' => 'Paro',
-                    )
-                )->setDefaultValue('PRG');
+                    AirClientManager::getDestinations())->setDefaultValue('BTS');
             });
 
             $destination = $container->addDynamic('searchDestination', function(\Nette\Forms\Container $_searchDestination) {
                 $_searchDestination->addContainer('airport')->addSelect('code', 'Destination',
-                    array('PRG' => 'Praha',
-                          'BTS' => 'Bratislava',
-                          'ATL' => 'Atlanta',
-                          'PBH' => 'Paro',
-                    )
-                )->setDefaultValue('BTS');
+                    AirClientManager::getDestinations())->setDefaultValue('PRG');
             });
 
             $searchDepTime = $container->addDynamic('searchDepTime', function(\Nette\Forms\Container $_searchDepTime) {
@@ -131,7 +124,7 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
 
         /** @var \Kdyby\Replicator\Container $provider */
         $provider = $preferredProviders->addDynamic('provider', function(\Nette\Forms\Container $preferredProvider) {
-            $preferredProvider->addText('code', 'Provider')->setDefaultValue('1G');
+            $preferredProvider->addHidden('code', '1G');
         });
 
         $air->createOne();
@@ -139,7 +132,8 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
 
         $removePassengerEvent = callback($this, 'RemoveADTPassenger');
         $searchPassengers = $this->addDynamic('searchPassenger', function(\Nette\Forms\Container $searchPassenger) use ($removePassengerEvent) {
-            $searchPassenger->addText('code', 'Passenger Type')->setDefaultValue('ADT');
+            $searchPassenger->addSelect('code', 'Passenger Type', array('ADT' => 'Dospělý (25-59 le)', 'YTH' => 'Mládežník (12-24 let)', 'INF' => 'Mimi/batole (0-2 roky)', 'CHD' => 'Dítě (2-11 let)', 'SRC' => 'Senior (60+ let)'))
+                ->setDefaultValue('ADT')->getControlPrototype()->class = 'form-control';
 
             $searchPassenger->addSubmit('remove', 'Remove')
                 ->setValidationScope(FALSE)
@@ -249,7 +243,6 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
                     $this->getPresenter()->flashMessage($exc->getMessage(), 'info');
 
                 }
-
             }
         }
     }
