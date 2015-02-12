@@ -5,25 +5,6 @@
 # http://nette.org/security-warning
 #
 parameters:
-#	system:
-#		location: 'https://emea.copy-webservices.travelport.com/B2BGateway/connect/uAPI/AirService'
-#		login: 'Universal API/uAPI8453149202-9bd3000c'
-#		targetbranch: 'P7033136'
-#		password: 'Jm5$7Q%nt-'
-#		targetbranch: 'P7005646'
-#		pcc: '79YE'
-
-	airClientManager:
-		options:
-			wsdl_location: 'https://emea.universal-api.pp.travelport.com/B2BGateway/connect/uAPI/AirService'
-			wsdl_url: '%appDir%/modules/travelport-module/Resources/galileo/air_v29_0/Air.wsdl'
-			wsdl_login: 'Universal API/uAPI7007419429-39310e89'
-			wsdl_password: 'aA{6X8w%/c'
-			targetbranch: 'P7033136'
-			authorizedBy: 'user'
-			traceId: 'trace'
-			pcc: '3Z1Q'
-
 
 php:
 	date.timezone: Europe/Prague
@@ -36,10 +17,6 @@ nette:
 
 	session:
 		expiration: 14 days
-
-	debugger:
-		email: 'pavel.paulik@seznam.cz'
-
 
 services:
 	- App\RouterFactory
