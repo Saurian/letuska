@@ -8,6 +8,8 @@ use AppModule\Forms\ILowFareSearchFormFactory;
 use AppModule\Forms\LowFareSearchForm;
 use CmsModule\TravelService\RequestFormMapper;
 use Goetas\Xsd\XsdToPhp\Naming\ShortNamingStrategy;
+use Kdyby\Doctrine\DuplicateEntryException;
+use Kdyby\Doctrine\EntityManager;
 use Nette,
     App\Model;
 use Tracy\Debugger;
@@ -15,8 +17,12 @@ use TravelPortModule\Air\AirPricingSolution;
 use TravelPortModule\Air\AirSegmentRef;
 use TravelPortModule\Air\Journey;
 use TravelPortModule\Air\LowFareSearchReq;
+use TravelPortModule\Entities\CountriesEntity;
+use TravelPortModule\Entities\CountryEntity;
+use TravelPortModule\Entities\CountryLangEntity;
 use TravelPortModule\InvalidArgumentException;
 use TravelPortModule\Managers\AirClientManager;
+use TravelPortModule\Managers\LocationManager;
 use TravelPortModule\Universal\AirCreateReservationReq;
 
 
@@ -32,6 +38,9 @@ class HomepagePresenter extends BasePresenter
     /** @var AirClientManager @inject */
     public $airClientManager;
 
+    /** @var LocationManager @inject */
+    public $locationManager;
+
     /** @var IAvailabilitySearchFormFactory @inject */
     public $availabilitySearchFormFactory;
 
@@ -43,6 +52,9 @@ class HomepagePresenter extends BasePresenter
 
     /** @var RequestFormMapper @inject */
     public $requestFormMapper;
+
+    /** @var EntityManager @inject */
+    public $em;
 
     /** @var Nette\Caching\Cache */
     private $cache;
@@ -341,7 +353,9 @@ class HomepagePresenter extends BasePresenter
 
     public function renderDefault()
     {
-        /** @var LowFareSearchForm $form */
+
+
+            /** @var LowFareSearchForm $form */
 //        $form = $this['lowFareSearchForm'];
 //        $form->onSuccess[] = array($this, 'lowFareSearchFormSuccess');
 //        dump($form->request);
@@ -480,9 +494,10 @@ class HomepagePresenter extends BasePresenter
      */
     protected function createComponentLowFareSearchForm()
     {
-        $form = $this->lowFareSearchFormFactory->create();
-        $form->injectRequestMapper($this->requestFormMapper);
-        $form->bindRequest($this->lowFareSearchRequest);
+        $form = $this->lowFareSearchFormFactory->create()
+            ->injectRequestMapper($this->requestFormMapper)
+            ->bindRequest($this->lowFareSearchRequest);
+
         if ($options = $this->airClientManager->getOptions()) {
             $form->setDefaults(array(
                 'targetBranch' => $options['targetbranch'],

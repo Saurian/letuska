@@ -338,18 +338,4 @@ class AirClientManager extends TravelPortSoapClient
     }
 
 
-    public static function getDestinations()
-    {
-        return array(
-            'PRG' => 'Praha',
-            'BTS' => 'Bratislava',
-            'ATL' => 'Atlanta',
-            'PBH' => 'Paro',
-            'SYD' => 'Sydney',
-            'YXU' => 'Londýn',
-        );
-
-    }
-
-
 }
