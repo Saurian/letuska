@@ -5,6 +5,10 @@
 # http://nette.org/security-warning
 #
 parameters:
+	importItems: 5000
+	cities: %appDir%\modules\travelport-module\Resources\imports\searchindexcities.json
+	airports: %appDir%\modules\travelport-module\Resources\imports\searchindexairports.json
+	countries: %appDir%\modules\travelport-module\Resources\imports\searchindexcountries.json
 
 php:
 	date.timezone: Europe/Prague
@@ -22,9 +26,11 @@ services:
 	- App\RouterFactory
 	- CmsModule\TravelService\RequestFormMapper
 	- TravelPortModule\Air\LowFareSearchReq
+	- TravelPortModule\Managers\PaymentManager(@payu.default)
 	router: @App\RouterFactory::createRouter
 
 	managers.AirClientManager: TravelPortModule\Managers\AirClientManager(%airClientManager.options%)
+	managers.LocationManager: TravelPortModule\Managers\LocationManager(@doctrine.dao(TravelPortModule\Entities\AirportEntity), @doctrine.dao(TravelPortModule\Entities\AirportLangEntity))
 
 	forms.availabilitySearchForm:
 		implement: AppModule\Forms\IAvailabilitySearchFormFactory
@@ -34,9 +40,37 @@ services:
 	forms.lowFareSearchForm:
 		implement: AppModule\Forms\ILowFareSearchFormFactory
 		setup:
+			- injectLocationManager(@managers.LocationManager)
 			- create
 			- bootstrap3Render
+
+	cacheStorage:
+		class: Nette\Caching\Storages\MemoryStorage
+
+	generateXsdCommand:
+		class: TravelPortModule\Tools\Console\Command\GenerateCommand
+		tags: [kdyby.console.command]
+
+	importAirPortsCommand:
+		class: TravelPortModule\Tools\Console\Command\ImportAirPortsCommand
+		tags: [kdyby.console.command]
+
+	importCountriesCommand:
+		class: TravelPortModule\Tools\Console\Command\ImportCountriesCommand
+		tags: [kdyby.console.command]
+
+	importCitiesCommand:
+		class: TravelPortModule\Tools\Console\Command\ImportCitiesCommand
+		tags: [kdyby.console.command]
+
+	validateSchemaCommand:
+		class: TravelPortModule\Tools\Console\Command\ValidateSchemaCommand
+		tags: [kdyby.console.command]
 
 extensions:
 	replicator: Kdyby\Replicator\DI\ReplicatorExtension
 	payu: HostBox\Bridge\PayU\Extension
+	console: Kdyby\Console\DI\ConsoleExtension
+	events: Kdyby\Events\DI\EventsExtension
+	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	doctrine: Kdyby\Doctrine\DI\OrmExtension

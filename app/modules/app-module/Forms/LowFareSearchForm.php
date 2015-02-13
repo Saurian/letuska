@@ -11,11 +11,9 @@
 
 namespace AppModule\Forms;
 
-use CmsModule\Doctrine\EntityFormTrait;
 use Kdyby\Replicator\Container;
 use CmsModule\TravelService\RequestFormTrait;
 use Nette\Application\UI\Form;
-use Nette\Application\UI\Presenter;
 use Nette\Forms\Controls\BaseControl;
 use Nette\Forms\Controls\Button;
 use Nette\Forms\Controls\Checkbox;
@@ -28,8 +26,7 @@ use Nette\Forms\Controls\TextBase;
 use Nette\Forms\Rendering\DefaultFormRenderer;
 use Nette\Object;
 use Nette\Utils\ArrayHash;
-use Tracy\Debugger;
-use TravelPortModule\Managers\AirClientManager;
+use TravelPortModule\Managers\LocationManager;
 use TravelPortModule\NotSupportedException;
 
 
@@ -43,6 +40,9 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
 
 //    use EntityFormTrait;
     use RequestFormTrait;
+
+    /** @var LocationManager */
+    private $locationManager;
 
 
     public function bootstrap3Render()
@@ -97,12 +97,12 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
             /** @var LowFareSearchForm $container */
             $searchOrigin = $container->addDynamic('searchOrigin', function(\Nette\Forms\Container $_searchOrigin) {
                 $_searchOrigin->addContainer('airport')->addSelect('code', 'Source',
-                    AirClientManager::getDestinations())->setDefaultValue('BTS');
+                    $this->locationManager->getDestinations())->setDefaultValue('BTS');
             });
 
             $destination = $container->addDynamic('searchDestination', function(\Nette\Forms\Container $_searchDestination) {
                 $_searchDestination->addContainer('airport')->addSelect('code', 'Destination',
-                    AirClientManager::getDestinations())->setDefaultValue('PRG');
+                    $this->locationManager->getDestinations())->setDefaultValue('PRG');
             });
 
             $searchDepTime = $container->addDynamic('searchDepTime', function(\Nette\Forms\Container $_searchDepTime) {
@@ -261,6 +261,12 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
         $control = new Container($factory, $createDefault, $forceDefault);
         $control->currentGroup = $this->currentGroup;
         return $this[$name] = $control;
+    }
+
+    public function injectLocationManager(LocationManager $locationManager)
+    {
+        $this->locationManager = $locationManager;
+        return $this;
     }
 
 }
