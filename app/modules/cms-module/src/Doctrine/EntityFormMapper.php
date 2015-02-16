@@ -83,8 +83,6 @@ class EntityFormMapper extends Nette\Object
 
         foreach (self::iterate($formElement) as $component) {
 
-//dump($component->name);
-
             foreach ($this->componentMappers as $mapper) {
                 if ($mapper->load($meta, $component, $entity)) {
                     break;

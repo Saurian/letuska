@@ -1,7 +1,7 @@
 {
     "name": "pixman/super-letuska",
     "description": "Air tickets reservation",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "keywords": ["devrun"],
     "license": "proprietary",
     "authors": [
@@ -17,22 +17,22 @@
         "kdyby/translation": "v2.0.3",
         "kdyby/curl": "v2.2.0",
         "kdyby/forms-replicator": "dev-master",
+        "symfony/property-access": "~2.5",
+        "symfony/yaml": "2.5.x-dev",
+        "doctrine/migrations": "1.0.*@dev",
+        "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
         "flame/framework": "dev-master",
         "flame/module-installer": "@dev",
         "flame/modules": "@dev",
         "janmarek/webloader": "2.2.0",
         "dg/adminer-custom": "~1.5.0",
         "sakren/nette-menu": "1.0.4",
-        "symfony/property-access": "~2.5",
         "knplabs/doctrine-behaviors": "1.1.x-dev",
         "zenify/doctrine-behaviors": "v1.2.1",
         "wsdl2phpgenerator/wsdl2phpgenerator": "3.0.0",
-        "goetas/xsd-reader": "dev-master",
-        "goetas/xml-xsd-encoder": "2.0.1",
         "goetas/xmldom": "1.0.3",
         "phpunit/phpunit": "3.7.*",
-        "phpunit/phpunit-selenium": ">=1.2",
-        "hostbox/api-payu-nette-bridge": "~1.0.0"
+        "phpunit/phpunit-selenium": ">=1.2"
 
     },
     "require-dev": {
