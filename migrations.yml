@@ -1,0 +1,16 @@
+#doctrine_migrations:
+#    dir_name: %kernel.root_dir%/DoctrineMigrations
+#    namespace: Application\Migrations
+#    table_name: migration_versions
+#    name: Application Migrations
+
+    #doctrine_migrations:
+#  dir_name: %kernel.root_dir%/DoctrineMigrations
+#  namespace: Application\Migrations
+#  table_name: migration_versions
+#  name: Application Migrations
+
+name: TravelPort Migrations
+migrations_namespace: TravelPortMigrations
+table_name: migration_versions
+migrations_directory: /app/!migrations
