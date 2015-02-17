@@ -395,17 +395,23 @@ class HomepagePresenter extends BasePresenter
 
                     $arrivalTime = new Nette\Utils\DateTime(end($airSegments)->arrivalTime);
                     $departureTime = new Nette\Utils\DateTime(reset($airSegments)->departureTime);
+                    $origin = reset($airSegments)->origin;
+                    $destination = end($airSegments)->destination;
+                    $originLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $origin));
+                    $destinationLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $destination));
 
                     $data[] = array(
                         'airPricingSolution' => $airPricingSolution,
                         'airSegments'        => $airSegments,
                         'carrier'            => reset($airSegments)->carrier,
                         'flightNumber'       => reset($airSegments)->flightNumber,
-                        'origin'             => reset($airSegments)->origin,
-                        'destination'        => end($airSegments)->destination,
+                        'origin'             => $origin,
+                        'destination'        => $destination,
+                        'originLang'         => $originLang,
+                        'destinationLang'    => $destinationLang,
                         'departureTime'      => $departureTime,
                         'arrivalTime'        => $arrivalTime,
-                        'flightType'         => count($airSegments) == 1 ? 'Přímý let' : count($airSegments) - 1 . ' přistání',
+                        'flightType'         => count($airSegments) == 1 ? 'Přímý let' : count($airSegments) - 1 . ' mezipřistání',
                         'flightTime'         => $departureTime->diff($arrivalTime),
                     );
                 }
@@ -500,7 +506,7 @@ class HomepagePresenter extends BasePresenter
 
         if ($options = $this->airClientManager->getOptions()) {
             $form->setDefaults(array(
-                'targetBranch' => $options['targetbranch'],
+                'targetBranch' => $options['targetBranch'],
                 'authorizedBy' => $options['authorizedBy'],
                 'traceId' => $options['traceId'],
             ));

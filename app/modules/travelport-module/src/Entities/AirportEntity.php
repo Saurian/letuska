@@ -18,7 +18,7 @@ use Nette\Utils\DateTime;
  * Class CountriesEntity
  *
  * @ORM\Entity
- * @ORM\Table(name="airport", uniqueConstraints={@ORM\UniqueConstraint(
+ * @ORM\Table(name="airport", indexes={@ORM\Index(
  *    name="cityCode_idx", columns={"city_code", "country_code"}
  * )})
  * @package TravelPortModule\Entities
@@ -29,7 +29,7 @@ class AirportEntity extends Object
 
     /**
      * @var ArrayCollection|AirportLangEntity[]
-     * @ORM\OneToMany(targetEntity="AirportLangEntity", mappedBy="lang", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="AirportLangEntity", mappedBy="airport", cascade={"persist"}, orphanRemoval=true)
      */
     protected $langs;
 

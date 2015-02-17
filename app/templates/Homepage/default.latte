@@ -5,6 +5,8 @@
  * @package    Letuska
  *
  * @param lowFare    $flightDetail
+ * @param AirportLangEntity    $flightDetail['originLang']      {lang, cityName, countryName, name}
+ * @param AirportLangEntity    $flightDetail['destinationLang'] {lang, cityName, countryName, name}
  * @param AirPricingSolution    $airPricingSolution
  * @param Presenter  $presenter      presenter
  *}
@@ -31,16 +33,49 @@
 
 		{snippet result}
 		{ifset $flightDetails}
-		<div n:foreach="$flightDetails as $flightDetail" class="col-6 col-sm-6 col-lg-4">
-			<h2>{$flightDetail['origin']} → {$flightDetail['destination']}</h2>
-			<p>departureTime => {$flightDetail['departureTime']}</p>
-			<p>arrivalTime => {$flightDetail['arrivalTime']}</p>
-			<p>flight => {$flightDetail['carrier']} {$flightDetail['flightNumber']}</p>
-			<p>{$flightDetail['flightType']}</p>
-			<p>flightTime => {if $flightDetail['flightTime']->d}{$flightDetail['flightTime']->d}d {/if}{$flightDetail['flightTime']->h}h {$flightDetail['flightTime']->i}min</p>
-			<p>totalPrice => {$flightDetail['airPricingSolution']->totalPrice}</p>
-			{*<p><a class="btn btn-default" href="#" role="button">View details »</a></p>*}
-		</div>
+			<div n:foreach="$flightDetails as $flightDetail" n:class="$iterator->odd ? 'bg-info text-primary': 'bg-primary text-info'">
+				<div class="row">
+					<div class="col-md-3">Odkud</div>
+					<div class="col-md-3">Kam</div>
+					<div class="col-md-3">Doba letu</div>
+					<div class="col-md-3">Cena</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<h2>{$flightDetail['originLang']->cityName}</h2>
+						<h3>({$flightDetail['origin']} <small n:class="$iterator->odd ? text-info: text-white">{$flightDetail['originLang']->name}</small>)</h3>
+						<h4>{$flightDetail['originLang']->countryName}</h4>
+					</div>
+					<div class="col-md-3">
+						<h2>{$flightDetail['destinationLang']->cityName}</h2>
+						<h3>({$flightDetail['destination']} <small n:class="$iterator->odd ? text-info: text-white">{$flightDetail['destinationLang']->name}</small>)</h3>
+						<h4>{$flightDetail['destinationLang']->countryName}</h4>
+					</div>
+					<div class="col-md-3">
+						<h2>{if $flightDetail['flightTime']->d}{$flightDetail['flightTime']->d}d {/if}{$flightDetail['flightTime']->h}h {$flightDetail['flightTime']->i}min</h2>
+						<h3>({$flightDetail['flightType']})</h3>
+					</div>
+					<div class="col-md-3">
+						<h2>{$flightDetail['airPricingSolution']->totalPrice}</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<small>Letecká společnost</small><br>
+						{$flightDetail['carrier']} {$flightDetail['flightNumber']}
+					</div>
+					<div class="col-md-3">
+						<small>Odlet a návrat</small><br>
+						Odlet {$flightDetail['departureTime']}<br>
+						Přílet {$flightDetail['arrivalTime']}<br>
+					</div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3">
+						{*<p><a class="btn btn-default" href="#" role="button">View details »</a></p>*}
+					</div>
+				</div>
+			</div>
+
 		{/ifset}
 		{/snippet}
 

@@ -29,7 +29,7 @@ class CityEntity extends Object
 
     /**
      * @var ArrayCollection|CityLangEntity[]
-     * @ORM\OneToMany(targetEntity="CityLangEntity", mappedBy="lang", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="CityLangEntity", mappedBy="country", cascade={"persist"}, orphanRemoval=true)
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     protected $langs;

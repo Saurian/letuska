@@ -26,7 +26,7 @@ services:
 	- App\RouterFactory
 	- CmsModule\TravelService\RequestFormMapper
 	- TravelPortModule\Air\LowFareSearchReq
-	- TravelPortModule\Managers\PaymentManager(@payu.default)
+#	- TravelPortModule\Managers\PaymentManager(@payu.default)
 	router: @App\RouterFactory::createRouter
 
 	managers.AirClientManager: TravelPortModule\Managers\AirClientManager(%airClientManager.options%)
@@ -67,10 +67,46 @@ services:
 		class: TravelPortModule\Tools\Console\Command\ValidateSchemaCommand
 		tags: [kdyby.console.command]
 
+	doctrine.migration.diffCommand:
+		class: CmsModule\Doctrine\Console\MigrationsDiffCommand
+		tags: [kdyby.console.command]
+
+	doctrine.migrations.executeCommand:
+		class: CmsModule\Doctrine\Console\MigrationsExecuteCommand
+		tags: [kdyby.console.command]
+
+	doctrine.migrations.generateCommand:
+		class: CmsModule\Doctrine\Console\MigrationsGenerateCommand
+		tags: [kdyby.console.command]
+
+	doctrine.migrations.latestCommand:
+		class: CmsModule\Doctrine\Console\MigrationsLatestCommand
+		tags: [kdyby.console.command]
+
+	doctrine.migrations.migrateCommand:
+		class: CmsModule\Doctrine\Console\MigrationsMigrateCommand
+		tags: [kdyby.console.command]
+
+	doctrine.migrations.statusCommand:
+		class: CmsModule\Doctrine\Console\MigrationsStatusCommand
+		tags: [kdyby.console.command]
+
+	doctrine.migrations.versionCommand:
+		class: CmsModule\Doctrine\Console\MigrationsVersionCommand
+		tags: [kdyby.console.command]
+
+
+translation:
+	debugger: on
+	default: cs
+	whitelist: [cs, sk, en, hu, es, ru, uk, pl, fr, de, it]
+	fallback: [cs_CZ, cs]
+
 extensions:
 	replicator: Kdyby\Replicator\DI\ReplicatorExtension
-	payu: HostBox\Bridge\PayU\Extension
+#	payu: HostBox\Bridge\PayU\Extension
 	console: Kdyby\Console\DI\ConsoleExtension
 	events: Kdyby\Events\DI\EventsExtension
 	annotations: Kdyby\Annotations\DI\AnnotationsExtension
 	doctrine: Kdyby\Doctrine\DI\OrmExtension
+	translation: Kdyby\Translation\DI\TranslationExtension

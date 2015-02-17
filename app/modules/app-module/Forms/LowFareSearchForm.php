@@ -106,7 +106,7 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
             });
 
             $searchDepTime = $container->addDynamic('searchDepTime', function(\Nette\Forms\Container $_searchDepTime) {
-                $_searchDepTime->addText('preferredTime', 'Preferred Time')->setDefaultValue('2015-02-16');
+                $_searchDepTime->addText('preferredTime', 'Preferred Time')->setDefaultValue('2015-02-18');
             });
 
 
