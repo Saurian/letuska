@@ -17,7 +17,11 @@ use Nette\Utils\DateTime;
  * Class CountriesEntity
  *
  * @ORM\Entity
- * @ORM\Table(name="country_lang")
+ * @ORM\Table(name="country_lang", indexes={
+ * @ORM\Index(name="lang_idx", columns={"lang"}),
+ * @ORM\Index(name="country_idx", columns={"name", "continent_name"}),
+ * })
+ *
  * @package TravelPortModule\Entities
  */
 class CountryLangEntity extends Object

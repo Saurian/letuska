@@ -15,9 +15,14 @@ use Nette\Utils\DateTime;
 
 /**
  * Class AirportLangEntity
+
  *
- * @ORM\Entity
- * @ORM\Table(name="airport_lang")
+*@ORM\Entity
+ * @ORM\Table(name="airport_lang", indexes={
+ * @ORM\Index(name="lang_idx", columns={"lang"}),
+ * @ORM\Index(name="country_idx", columns={"city_name", "country_name"}),
+ * })
+ *
  * @package TravelPortModule\Entities
  */
 class AirportLangEntity extends Object

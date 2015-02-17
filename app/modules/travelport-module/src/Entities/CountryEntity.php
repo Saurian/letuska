@@ -18,8 +18,8 @@ use Nette\Object;
  * Class CityEntity
  *
  * @ORM\Entity
- * @ORM\Table(name="country", uniqueConstraints={@ORM\UniqueConstraint(
- *    name="continentCode_idx", columns={"continent_code"}
+ * @ORM\Table(name="country", indexes={@ORM\Index(
+ *    name="continentCode_idx", columns={"continent_code", "top"}
  * )})
  * @package TravelPortModule\Entities
  */
@@ -29,7 +29,7 @@ class CountryEntity extends Object
 
     /**
      * @var ArrayCollection|CountryLangEntity[]
-     * @ORM\OneToMany(targetEntity="CountryLangEntity", mappedBy="lang", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="CountryLangEntity", mappedBy="country", cascade={"persist"}, orphanRemoval=true)
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     protected $langs;

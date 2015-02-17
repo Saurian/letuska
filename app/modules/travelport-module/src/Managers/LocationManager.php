@@ -29,6 +29,21 @@ class LocationManager
         $this->airportLangDao = $airportLangEntiry;
     }
 
+    /**
+     * @return EntityDao|AirportEntity
+     */
+    public function getAirportDao()
+    {
+        return $this->airportDao;
+    }
+
+    /**
+     * @return EntityDao|AirportLangEntity
+     */
+    public function getAirportLangDao()
+    {
+        return $this->airportLangDao;
+    }
 
     /**
      * @return array
@@ -48,9 +63,11 @@ class LocationManager
             'PRG' => 'Praha',
             'BTS' => 'Bratislava',
             'ATL' => 'Atlanta',
-            'PBH' => 'Paro',
             'SYD' => 'Sydney',
-            'YXU' => 'Londýn',
+            'YXU' => 'Londýn (Canada)',
+            'LGW' => 'Londýn (Velká Británie)',
+            'SFO' => 'San Francisko',
+            'CDG' => 'Charles De Gaulle',
         );
 
     }
