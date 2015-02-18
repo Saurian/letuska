@@ -91,7 +91,7 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
 
         $this->addContainer('overridePCC')->addHidden('pseudoCityCode', 'UAPI');
 
-        $this->addContainer('billingPointOfSaleInfo')->addHidden('originApplication', 'UAPI');
+        $this->addContainer('billingPointOfSaleInfo')->addHidden('originApplication', 'uAPI');
 
         $air = $this->addDynamic('searchAirLeg', function (\Nette\Forms\Container $container) {
             /** @var LowFareSearchForm $container */
@@ -100,13 +100,13 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
                     $this->locationManager->getDestinations())->setDefaultValue('BTS');
             });
 
-            $destination = $container->addDynamic('searchDestination', function(\Nette\Forms\Container $_searchDestination) {
+            $destination = $container->addDynamic('searchDestination', function (\Nette\Forms\Container $_searchDestination) {
                 $_searchDestination->addContainer('airport')->addSelect('code', 'Destination',
                     $this->locationManager->getDestinations())->setDefaultValue('PRG');
             });
 
             $searchDepTime = $container->addDynamic('searchDepTime', function(\Nette\Forms\Container $_searchDepTime) {
-                $_searchDepTime->addText('preferredTime', 'Preferred Time')->setDefaultValue('2015-02-18');
+                $_searchDepTime->addText('preferredTime', 'Preferred Time')->setDefaultValue('2015-02-20');
             });
 
 

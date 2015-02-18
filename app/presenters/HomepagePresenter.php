@@ -5,7 +5,9 @@ namespace App\Presenters;
 use AppModule\Components\DebugForm;
 use AppModule\Forms\IAvailabilitySearchFormFactory;
 use AppModule\Forms\ILowFareSearchFormFactory;
+use AppModule\Forms\IParamFlightSearchFormFactory;
 use AppModule\Forms\LowFareSearchForm;
+use AppModule\Forms\ParamFlightSearchForm;
 use CmsModule\TravelService\RequestFormMapper;
 use Goetas\Xsd\XsdToPhp\Naming\ShortNamingStrategy;
 use Kdyby\Doctrine\DuplicateEntryException;
@@ -23,6 +25,7 @@ use TravelPortModule\Entities\CountryLangEntity;
 use TravelPortModule\InvalidArgumentException;
 use TravelPortModule\Managers\AirClientManager;
 use TravelPortModule\Managers\LocationManager;
+use TravelPortModule\Managers\ParametricRequestManager;
 use TravelPortModule\Universal\AirCreateReservationReq;
 
 
@@ -41,11 +44,17 @@ class HomepagePresenter extends BasePresenter
     /** @var LocationManager @inject */
     public $locationManager;
 
+    /** @var ParametricRequestManager @inject */
+    public $parametricRequestManager;
+
     /** @var IAvailabilitySearchFormFactory @inject */
     public $availabilitySearchFormFactory;
 
     /** @var ILowFareSearchFormFactory @inject */
     public $lowFareSearchFormFactory;
+
+    /** @var IParamFlightSearchFormFactory @inject */
+    public $paramFlightSearchFormFactory;
 
     /** @var LowFareSearchReq @inject */
     public $lowFareSearchRequest;
@@ -59,8 +68,71 @@ class HomepagePresenter extends BasePresenter
     /** @var Nette\Caching\Cache */
     private $cache;
 
+    /** @var array only to ajax info*/
+    private $debugInfo;
 
-    public function __construct(Nette\Caching\IStorage $IStorage)
+    /** @var @persistent Hledat V */
+    public $pricer_pref = 'MUP';
+
+    /** @var @persistent Třída */
+    public $cabin_pref = 'Y';
+
+    /** @var @persistent Preferované letecké společnosti */
+    public $airlines  = '';
+
+    /** @var @persistent typ cesty */
+    public $journey_type = 'RT';
+
+    /** @var @persistent dítě 0-2 let */
+    public $infcount = 0;
+
+    /** @var @persistent dítě 2-11 let */
+    public $chdcount = 0;
+
+    /** @var @persistent 12-24 let */
+    public $ythcount = 0;
+
+    /** @var @persistent 25-59 let */
+    public $adtcount = 1;
+
+    /** @var @persistent 60+ let */
+    public $ycdcount = 0;
+
+    /** @var @persistent IATA Odletové letiště 1 */
+    public $dep_0;
+
+    /** @var @persistent IATA Příletové letiště 1 */
+    public $arr_0;
+
+    /** @var @persistent IATA Odletové letiště 2 */
+    public $dep_1;
+
+    /** @var @persistent IATA Příletové letiště 2 */
+    public $arr_1;
+
+    /** @var @persistent IATA Odletové letiště 3 */
+    public $dep_2;
+
+    /** @var @persistent IATA Příletové letiště 3 */
+    public $arr_2;
+
+    /** @var @persistent IATA Odletové letiště 4 */
+    public $dep_3;
+
+    /** @var @persistent IATA Příletové letiště 4 */
+    public $arr_3;
+
+    /** @var @persistent Datum odletu z letiště 1 */
+    public $full_date_0;
+
+    /** @var @persistent Pokud JOURNEY_TYPE=RT pak "Datum příletu", pokud JOURNEY_TYPE=MS pak "Datum odletu" z letiště 2 */
+    public $full_date_1;
+
+    /** @var @persistent Pokud JOURNEY_TYPE=MS, pak "Datum odletu" z letiště 3 */
+    public $full_date_2;
+
+
+    public function __construct(  Nette\Caching\IStorage $IStorage)
     {
         parent::__construct();
         $this->cache = new Nette\Caching\Cache($IStorage);
@@ -351,8 +423,87 @@ class HomepagePresenter extends BasePresenter
             $this->redirect('this');
     }
 
-    public function renderDefault()
+    public function renderDefault($id)
     {
+        $request = $this->parametricRequestManager->createRequest($this->getAsianaParams(), $this->lowFareSearchRequest);
+
+        if ($options = $this->airClientManager->getOptions()) {
+            $request->setTraceId('test')->setTargetBranch($options['targetBranch'])->setAuthorizedBy($options['authorizedBy']);
+        }
+
+        try {
+            $response = $this->airClientManager->lowFareSearchReq($request);
+
+            $flightDetails = $response->getAirSegmentList();
+
+            $data = array();
+            /** @var AirPricingSolution $airPricingSolution */
+            foreach ($response->getAirPricingSolution() as $airPricingSolution) {
+
+                $airSegments = array();
+
+                /** @var Journey $journey */
+                foreach ($airPricingSolution->getJourney() as $journey) {
+
+                    /** @var AirSegmentRef $airSegmentRef */
+                    foreach ($journey->getAirSegmentRef() as $airSegmentRef) {
+                        $airSegmentKey = $airSegmentRef->getKey();
+
+                        if ($object = $this->findObjectByKey($response->getAirSegmentList()->getAirSegment(), $airSegmentKey)) {
+                            $airSegments[] = $object;
+                        }
+                    }
+                }
+
+                $arrivalTime = new Nette\Utils\DateTime(end($airSegments)->arrivalTime);
+                $departureTime = new Nette\Utils\DateTime(reset($airSegments)->departureTime);
+                $origin = reset($airSegments)->origin;
+                $destination = end($airSegments)->destination;
+                $originLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $origin));
+                $destinationLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $destination));
+
+                $data[] = array(
+                    'airPricingSolution' => $airPricingSolution,
+                    'airSegments'        => $airSegments,
+                    'carrier'            => reset($airSegments)->carrier,
+                    'flightNumber'       => reset($airSegments)->flightNumber,
+                    'origin'             => $origin,
+                    'destination'        => $destination,
+                    'originLang'         => $originLang,
+                    'destinationLang'    => $destinationLang,
+                    'departureTime'      => $departureTime,
+                    'arrivalTime'        => $arrivalTime,
+                    'flightType'         => count($airSegments) == 1 ? 'Přímý let' : count($airSegments) - 1 . ' mezipřistání',
+                    'flightTime'         => $departureTime->diff($arrivalTime),
+                );
+            }
+
+
+            $this->template->flightParamDetails = $data;
+
+            //$this->debugInfoGetParams();
+            //$this->debugInfo .= Debugger::dump($response, true);
+
+            $this->template->debugResponse = $this->debugInfo;
+
+        } catch (InvalidArgumentException $exc) {
+            $this->flashMessage( $exc->getMessage(), 'warning');
+            Debugger::log($exc);
+
+        } catch (\SoapFault $exc) {
+            $this->flashMessage($exc->getMessage(), 'danger');
+            Debugger::log($exc);
+
+        }
+
+        if ($this->isAjax()) {
+            $this->redrawControl('flash');
+            $this->redrawControl('result');
+            $this->redrawControl('resultParams');
+            $this->redrawControl('debugResponse');
+        }
+
+
 
 
             /** @var LowFareSearchForm $form */
@@ -418,7 +569,11 @@ class HomepagePresenter extends BasePresenter
 
 
                 $this->template->flightDetails = $data;
-                //$this->template->debugResponse = Debugger::dump($response, true);
+
+                //$this->debugInfoGetParams();
+                //$this->debugInfo .= Debugger::dump($response, true);
+
+                $this->template->debugResponse = $this->debugInfo;
 
             } catch (InvalidArgumentException $exc) {
                 $this->flashMessage( $exc->getMessage(), 'warning');
@@ -439,6 +594,37 @@ class HomepagePresenter extends BasePresenter
 
     }
 
+
+    private function getAsianaParams()
+    {
+        return array(
+            'pricer_pref' => $this->pricer_pref,
+            'airlines' => $this->airlines,
+            'journey_type' => $this->journey_type,
+            'infcount' => $this->infcount,
+            'chdcount' => $this->chdcount,
+            'ythcount' => $this->ythcount,
+            'adtcount' => $this->adtcount,
+            'ycdcount' => $this->ycdcount,
+            'dep_0' => $this->dep_0,
+            'arr_0' => $this->arr_0,
+            'dep_1' => $this->dep_1,
+            'arr_1' => $this->arr_1,
+            'dep_2' => $this->dep_2,
+            'arr_2' => $this->arr_2,
+            'dep_3' => $this->dep_3,
+            'arr_3' => $this->arr_3,
+            'full_date_0' => $this->full_date_0,
+            'full_date_1' => $this->full_date_1,
+            'full_date_2' => $this->full_date_2,
+        );
+    }
+
+    private function debugInfoGetParams()
+    {
+        $info = $this->getAsianaParams();
+        $this->debugInfo .= Debugger::dump($info, true);
+    }
 
     /**
      * @param $object
@@ -494,7 +680,6 @@ class HomepagePresenter extends BasePresenter
         return $form;
     }
 
-
     /**
      * @return \AppModule\Forms\LowFareSearchForm
      */
@@ -513,6 +698,47 @@ class HomepagePresenter extends BasePresenter
         }
 
         $form->onSuccess[] = callback($this, 'lowFareSearchFormSuccess');
+        return $form;
+    }
+
+    /**
+     * @return \AppModule\Forms\ParamFlightSearchForm
+     */
+    protected function createComponentParamFlightSearchForm()
+    {
+        /** @var ParamFlightSearchForm $form */
+        $form = $this->paramFlightSearchFormFactory->create()
+            ->injectRequestMapper($this->requestFormMapper)
+            ->bindRequest($this->lowFareSearchRequest);
+
+        $options = $this->airClientManager->getOptions();
+        $form->setDefaults(array(
+            'targetBranch' => $options['targetBranch'],
+            'authorizedBy' => $options['authorizedBy'],
+            'traceId'      => $options['traceId'],
+            'pricer_pref'  => $this->pricer_pref,
+            'cabin_pref'   => $this->cabin_pref,
+            'airlines'     => $this->airlines,
+            'journey_type' => $this->journey_type,
+            'infcount'     => $this->infcount,
+            'chdcount'     => $this->chdcount,
+            'ythcount'     => $this->ythcount,
+            'adtcount'     => $this->adtcount,
+            'ycdcount'     => $this->ycdcount,
+            'dep_0'        => $this->dep_0,
+            'arr_0'        => $this->arr_0,
+            'dep_1'        => $this->dep_1,
+            'arr_1'        => $this->arr_1,
+            'dep_2'        => $this->dep_2,
+            'arr_2'        => $this->arr_2,
+            'dep_3'        => $this->dep_3,
+            'arr_3'        => $this->arr_3,
+            'full_date_0'  => $this->full_date_0,
+            'full_date_1'  => $this->full_date_1,
+            'full_date_2'  => $this->full_date_2,
+        ));
+
+        //$form->onSuccess[] = callback($this, 'lowFareSearchFormSuccess');
         return $form;
     }
 

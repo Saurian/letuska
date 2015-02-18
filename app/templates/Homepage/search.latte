@@ -1,0 +1,53 @@
+{**
+ * Šablona titulní stránky.
+ *
+ * @copyright  Copyright (c) 2015 Pavel Paulík
+ * @package    Letuska
+ *
+ * @param lowFare    $flightDetail
+ * @param AirportLangEntity    $flightDetail['originLang']      {lang, cityName, countryName, name}
+ * @param AirportLangEntity    $flightDetail['destinationLang'] {lang, cityName, countryName, name}
+ * @param AirPricingSolution    $airPricingSolution
+ * @param Presenter  $presenter      presenter
+ *}
+
+{block content}
+<p class="pull-right visible-xs">
+	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+</p>
+<div class="jumbotron">
+	<h1>Letuska → devel</h1>
+	<p>Bratislava => BTS | Praha => PRG | Atlanta => ATL</p>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingOne">
+			<h4 class="panel-title">Search type #1 LowFareSearchForm</h4>
+		</div>
+		<div class="panel-body">
+			{snippet form}
+			{control lowFareSearchForm}
+			{/snippet}
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="progress">
+		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">100% Complete</span></div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h4 class="panel-title text-center">Result</h4>
+		</div>
+
+		{snippet result}
+		<div class="panel-body" n:ifset="$flightDetails">
+			{include "_flightList.latte", flights => $flightDetails}
+		</div>
+		{/snippet}
+	</div>
+
+</div>
+

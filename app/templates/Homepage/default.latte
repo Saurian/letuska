@@ -13,82 +13,51 @@
 
 
 {block content}
-<p class="pull-right visible-xs">
-	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-</p>
-<div class="jumbotron">
-	{snippet form}
-	{control lowFareSearchForm}
-	{/snippet}
-	<h1>Letuska → devel</h1>
-	<p>Bratislava => BTS | Praha => PRG | Atlanta => ATL</p>
-</div>
+	<p class="pull-right visible-xs">
+		<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+	</p>
+	<div class="jumbotron">
+		<h1>Letuska → devel</h1>
+		<p>Bratislava => BTS | Praha => PRG | Atlanta => ATL</p>
 
-
+		<div class="panel panel-primary">
+			<div class="panel-heading" role="tab" id="headingTwo">
+				<h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+						Search type #2 ParamSearchForm
+					</a>
+				</h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+				<div class="panel-body">
+					<p>Auto search from params</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="row">
-
 		<div class="progress">
 			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">100% Complete</span></div>
 		</div>
 
-		{snippet result}
-		{ifset $flightDetails}
-			<div n:foreach="$flightDetails as $flightDetail" n:class="$iterator->odd ? 'bg-info text-primary': 'bg-primary text-info'">
-				<div class="row">
-					<div class="col-md-3">Odkud</div>
-					<div class="col-md-3">Kam</div>
-					<div class="col-md-3">Doba letu</div>
-					<div class="col-md-3">Cena</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<h2>{$flightDetail['originLang']->cityName}</h2>
-						<h3>({$flightDetail['origin']} <small n:class="$iterator->odd ? text-info: text-white">{$flightDetail['originLang']->name}</small>)</h3>
-						<h4>{$flightDetail['originLang']->countryName}</h4>
-					</div>
-					<div class="col-md-3">
-						<h2>{$flightDetail['destinationLang']->cityName}</h2>
-						<h3>({$flightDetail['destination']} <small n:class="$iterator->odd ? text-info: text-white">{$flightDetail['destinationLang']->name}</small>)</h3>
-						<h4>{$flightDetail['destinationLang']->countryName}</h4>
-					</div>
-					<div class="col-md-3">
-						<h2>{if $flightDetail['flightTime']->d}{$flightDetail['flightTime']->d}d {/if}{$flightDetail['flightTime']->h}h {$flightDetail['flightTime']->i}min</h2>
-						<h3>({$flightDetail['flightType']})</h3>
-					</div>
-					<div class="col-md-3">
-						<h2>{$flightDetail['airPricingSolution']->totalPrice}</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">
-						<small>Letecká společnost</small><br>
-						{$flightDetail['carrier']} {$flightDetail['flightNumber']}
-					</div>
-					<div class="col-md-3">
-						<small>Odlet a návrat</small><br>
-						Odlet {$flightDetail['departureTime']}<br>
-						Přílet {$flightDetail['arrivalTime']}<br>
-					</div>
-					<div class="col-md-3"></div>
-					<div class="col-md-3">
-						{*<p><a class="btn btn-default" href="#" role="button">View details »</a></p>*}
-					</div>
-				</div>
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h4 class="panel-title text-center">Result</h4>
 			</div>
-
-		{/ifset}
-		{/snippet}
-
-
-</div>
-
-
+			{snippet resultParams}
+			<div class="panel-body" n:ifset="$flightParamDetails">
+				{include "_flightList.latte", flights => $flightParamDetails}
+			</div>
+			{/snippet}
+		</div>
+	</div>
 {/block}
 
 {block scripts}
-{include parent}
+	{include parent}
 {/block}
 
 
 {block head}
 {/block}
+

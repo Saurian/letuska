@@ -1,0 +1,47 @@
+{ifset $flights}
+	<div n:foreach="$flights as $flightDetail" n:class="$iterator->odd ? 'well-custom bg-info text-primary': 'well-custom bg-primary text-info'">
+		<div class="row">
+			<div class="col-md-3">Odkud</div>
+			<div class="col-md-3">Kam</div>
+			<div class="col-md-3">Doba letu</div>
+			<div class="col-md-3">Cena</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<h2>{$flightDetail['originLang']->cityName}</h2>
+				<h3>({$flightDetail['origin']} <small n:class="$iterator->odd ? text-info: text-white">{$flightDetail['originLang']->name}</small>)</h3>
+				<h4>{$flightDetail['originLang']->countryName}</h4>
+			</div>
+			<div class="col-md-3">
+				<h2>{$flightDetail['destinationLang']->cityName}</h2>
+				<h3>({$flightDetail['destination']} <small n:class="$iterator->odd ? text-info: text-white">{$flightDetail['destinationLang']->name}</small>)</h3>
+				<h4>{$flightDetail['destinationLang']->countryName}</h4>
+			</div>
+			<div class="col-md-3">
+				<h2>{if $flightDetail['flightTime']->d}{$flightDetail['flightTime']->d}d {/if}{$flightDetail['flightTime']->h}h {$flightDetail['flightTime']->i}min</h2>
+				<h3>({$flightDetail['flightType']})</h3>
+			</div>
+			<div class="col-md-3">
+				<h2>{$flightDetail['airPricingSolution']->totalPrice}</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<small>Letecká společnost</small><br>
+				{$flightDetail['carrier']} {$flightDetail['flightNumber']}
+			</div>
+			<div class="col-md-3">
+				<small>Odlet a návrat</small><br>
+				Odlet {$flightDetail['departureTime']}<br>
+				Přílet {$flightDetail['arrivalTime']}<br>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<p><a class="btn btn-default" n:href="Basket:" role="button">View details »</a></p>
+			</div>
+		</div>
+	</div>
+
+{else}
+	<em>empty</em>
+{/ifset}

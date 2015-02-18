@@ -31,6 +31,7 @@ services:
 
 	managers.AirClientManager: TravelPortModule\Managers\AirClientManager(%airClientManager.options%)
 	managers.LocationManager: TravelPortModule\Managers\LocationManager(@doctrine.dao(TravelPortModule\Entities\AirportEntity), @doctrine.dao(TravelPortModule\Entities\AirportLangEntity))
+	managers.parametricRequestManager: TravelPortModule\Managers\ParametricRequestManager
 
 	forms.availabilitySearchForm:
 		implement: AppModule\Forms\IAvailabilitySearchFormFactory
@@ -44,8 +45,13 @@ services:
 			- create
 			- bootstrap3Render
 
-	cacheStorage:
-		class: Nette\Caching\Storages\MemoryStorage
+	forms.paramFlightSearchForm:
+		implement: AppModule\Forms\IParamFlightSearchFormFactory
+		setup:
+			- create
+
+#	cacheStorage:
+#		class: Nette\Caching\Storages\MemoryStorage
 
 	generateXsdCommand:
 		class: TravelPortModule\Tools\Console\Command\GenerateCommand
