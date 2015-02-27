@@ -11,10 +11,13 @@ namespace TravelPortModule\Managers;
 
 
 use Kdyby\Doctrine\EntityDao;
+use Nette\Caching\Cache;
+use Nette\Caching\IStorage;
+use Nette\Object;
 use TravelPortModule\Entities\AirportEntity;
 use TravelPortModule\Entities\AirportLangEntity;
 
-class LocationManager
+class LocationManager extends Object
 {
 
     /** @var EntityDao|AirportEntity */
@@ -23,8 +26,12 @@ class LocationManager
     /** @var EntityDao|AirportLangEntity */
     private $airportLangDao;
 
-    function __construct(EntityDao $airportDao, EntityDao $airportLangEntiry)
+    /** @var  Cache */
+    private $cache;
+
+    function __construct(EntityDao $airportDao, EntityDao $airportLangEntiry, IStorage $storage)
     {
+        $this->cache          = new Cache($storage);
         $this->airportDao     = $airportDao;
         $this->airportLangDao = $airportLangEntiry;
     }
@@ -44,6 +51,21 @@ class LocationManager
     {
         return $this->airportLangDao;
     }
+
+
+    public function findOneBy(array $criteria, array $orderBy = null)
+    {
+        if ($translate = $this->cache->load($criteria)) {
+            return $translate;
+        }
+        $translate = $this->airportLangDao->findOneBy($criteria, $orderBy);
+        $this->cache->save($criteria, $translate, array(
+            Cache::EXPIRE => '20 minutes',
+            Cache::SLIDING => TRUE,
+        ));
+        return $translate;
+    }
+
 
     /**
      * @return array

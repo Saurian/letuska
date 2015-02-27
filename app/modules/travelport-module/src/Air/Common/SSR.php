@@ -53,7 +53,7 @@ class SSR extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $status;
 
@@ -82,7 +82,7 @@ class SSR extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $description;
 
@@ -111,7 +111,7 @@ class SSR extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -119,7 +119,7 @@ class SSR extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -127,7 +127,7 @@ class SSR extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $profileID;
 
@@ -148,7 +148,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -175,7 +175,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setSegmentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->segmentRef = $value;
 		}
 		return $this;
@@ -203,7 +203,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setPassiveSegmentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->passiveSegmentRef = $value;
 		}
 		return $this;
@@ -232,7 +232,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setProviderReservationInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerReservationInfoRef = $value;
 		}
 		return $this;
@@ -285,7 +285,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setStatus($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->status = $value;
 		}
 		return $this;
@@ -313,7 +313,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setFreeText($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->freeText = $value;
 		}
 		return $this;
@@ -341,7 +341,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrier = $value;
 		}
 		return $this;
@@ -370,7 +370,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setCarrierSpecificText($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrierSpecificText = $value;
 		}
 		return $this;
@@ -399,7 +399,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setDescription($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->description = $value;
 		}
 		return $this;
@@ -427,7 +427,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setProviderDefinedType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerDefinedType = $value;
 		}
 		return $this;
@@ -456,7 +456,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setSSRRuleRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->sSRRuleRef = $value;
 		}
 		return $this;
@@ -484,7 +484,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setURL($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->uRL = $value;
 		}
 		return $this;
@@ -513,7 +513,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -543,7 +543,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;
@@ -572,7 +572,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setProfileID($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->profileID = $value;
 		}
 		return $this;
@@ -601,7 +601,7 @@ class SSR extends \Nette\Object
 	 */
 	public function setProfileSecureFlightDocKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->profileSecureFlightDocKey = $value;
 		}
 		return $this;

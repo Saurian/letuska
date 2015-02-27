@@ -144,7 +144,7 @@ class FareRemark extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -171,7 +171,7 @@ class FareRemark extends \Nette\Object
 	 */
 	public function setName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->name = $value;
 		}
 		return $this;

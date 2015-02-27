@@ -14,7 +14,7 @@ class BaggageAllowance extends \Nette\Object
 	/**
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $numberOfPieces;
 

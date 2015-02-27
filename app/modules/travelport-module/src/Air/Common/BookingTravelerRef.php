@@ -163,7 +163,7 @@ class BookingTravelerRef extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;

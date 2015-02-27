@@ -24,7 +24,7 @@ class ModifyRuleAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $automaticallyAppliedOnAdd;
 
@@ -32,7 +32,7 @@ class ModifyRuleAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $canDelete;
 
@@ -40,7 +40,7 @@ class ModifyRuleAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $canAdd;
 
@@ -48,7 +48,7 @@ class ModifyRuleAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $refundable;
 
@@ -56,7 +56,7 @@ class ModifyRuleAType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $providerDefinedModificationType;
 
@@ -98,7 +98,7 @@ class ModifyRuleAType extends \Nette\Object
 	 */
 	public function setAutomaticallyAppliedOnAdd($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->automaticallyAppliedOnAdd = $value;
 		}
 		return $this;
@@ -127,7 +127,7 @@ class ModifyRuleAType extends \Nette\Object
 	 */
 	public function setCanDelete($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->canDelete = $value;
 		}
 		return $this;
@@ -156,7 +156,7 @@ class ModifyRuleAType extends \Nette\Object
 	 */
 	public function setCanAdd($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->canAdd = $value;
 		}
 		return $this;
@@ -185,7 +185,7 @@ class ModifyRuleAType extends \Nette\Object
 	 */
 	public function setRefundable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->refundable = $value;
 		}
 		return $this;
@@ -214,7 +214,7 @@ class ModifyRuleAType extends \Nette\Object
 	 */
 	public function setProviderDefinedModificationType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerDefinedModificationType = $value;
 		}
 		return $this;

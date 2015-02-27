@@ -31,7 +31,7 @@ class NextResultReference extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;

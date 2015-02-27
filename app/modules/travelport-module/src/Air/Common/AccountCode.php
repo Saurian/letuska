@@ -23,14 +23,14 @@ class AccountCode extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeSupplierCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $supplierCode;
 
@@ -38,7 +38,7 @@ class AccountCode extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $type;
 
@@ -52,7 +52,7 @@ class AccountCode extends \Nette\Object
 	 */
 	public function setCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->code = $value;
 		}
 		return $this;
@@ -79,7 +79,7 @@ class AccountCode extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -106,7 +106,7 @@ class AccountCode extends \Nette\Object
 	 */
 	public function setSupplierCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierCode = $value;
 		}
 		return $this;
@@ -135,7 +135,7 @@ class AccountCode extends \Nette\Object
 	 */
 	public function setType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->type = $value;
 		}
 		return $this;

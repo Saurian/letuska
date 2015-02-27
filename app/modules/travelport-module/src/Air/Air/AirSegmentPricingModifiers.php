@@ -31,7 +31,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $cabinClass;
 
@@ -39,7 +39,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $accountCode;
 
@@ -47,7 +47,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitAdvancePurchaseFares;
 
@@ -55,7 +55,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitNonRefundableFares;
 
@@ -63,7 +63,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitPenaltyFares;
 
@@ -71,7 +71,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $fareBasisCode;
 
@@ -122,7 +122,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setAirSegmentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->airSegmentRef = $value;
 		}
 		return $this;
@@ -149,7 +149,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setCabinClass($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->cabinClass = $value;
 		}
 		return $this;
@@ -176,7 +176,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setAccountCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->accountCode = $value;
 		}
 		return $this;
@@ -203,7 +203,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitAdvancePurchaseFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitAdvancePurchaseFares = $value;
 		}
 		return $this;
@@ -230,7 +230,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitNonRefundableFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitNonRefundableFares = $value;
 		}
 		return $this;
@@ -257,7 +257,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitPenaltyFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitPenaltyFares = $value;
 		}
 		return $this;
@@ -285,7 +285,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setFareBasisCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareBasisCode = $value;
 		}
 		return $this;
@@ -315,7 +315,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setFareBreak($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareBreak = $value;
 		}
 		return $this;
@@ -346,7 +346,7 @@ class AirSegmentPricingModifiers extends \Nette\Object
 	 */
 	public function setConnectionIndicator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->connectionIndicator = $value;
 		}
 		return $this;

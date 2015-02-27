@@ -84,7 +84,7 @@ class Journey extends \Nette\Object
 	 */
 	public function setTravelTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelTime = $value;
 		}
 		return $this;

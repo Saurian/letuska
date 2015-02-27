@@ -15,7 +15,7 @@ class FareStatusFailureInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $code;
 
@@ -23,7 +23,7 @@ class FareStatusFailureInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $reason;
 
@@ -65,7 +65,7 @@ class FareStatusFailureInfo extends \Nette\Object
 	 */
 	public function setReason($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->reason = $value;
 		}
 		return $this;

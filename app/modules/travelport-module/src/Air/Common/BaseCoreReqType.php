@@ -39,7 +39,7 @@ class BaseCoreReqType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $traceId;
 
@@ -47,7 +47,7 @@ class BaseCoreReqType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $tokenId;
 
@@ -55,7 +55,7 @@ class BaseCoreReqType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $authorizedBy;
 
@@ -184,7 +184,7 @@ class BaseCoreReqType extends \Nette\Object
 	 */
 	public function setTraceId($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->traceId = $value;
 		}
 		return $this;
@@ -213,7 +213,7 @@ class BaseCoreReqType extends \Nette\Object
 	 */
 	public function setTokenId($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->tokenId = $value;
 		}
 		return $this;
@@ -242,7 +242,7 @@ class BaseCoreReqType extends \Nette\Object
 	 */
 	public function setAuthorizedBy($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->authorizedBy = $value;
 		}
 		return $this;
@@ -271,7 +271,7 @@ class BaseCoreReqType extends \Nette\Object
 	 */
 	public function setTargetBranch($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->targetBranch = $value;
 		}
 		return $this;
@@ -300,7 +300,7 @@ class BaseCoreReqType extends \Nette\Object
 	 */
 	public function setOverrideLogging($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->overrideLogging = $value;
 		}
 		return $this;
@@ -329,7 +329,7 @@ class BaseCoreReqType extends \Nette\Object
 	 */
 	public function setLanguageCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->languageCode = $value;
 		}
 		return $this;

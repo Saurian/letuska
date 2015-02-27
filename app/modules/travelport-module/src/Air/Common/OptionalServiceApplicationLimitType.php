@@ -26,7 +26,7 @@ class OptionalServiceApplicationLimitType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $providerDefinedApplicableLevels;
 
@@ -84,7 +84,7 @@ class OptionalServiceApplicationLimitType extends \Nette\Object
 	 */
 	public function setProviderDefinedApplicableLevels($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerDefinedApplicableLevels = $value;
 		}
 		return $this;
@@ -140,7 +140,7 @@ class OptionalServiceApplicationLimitType extends \Nette\Object
 	 */
 	public function setMinimumQuantity($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->minimumQuantity = $value;
 		}
 		return $this;

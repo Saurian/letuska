@@ -478,7 +478,7 @@ class AirLegModifiers extends \Nette\Object
 	 */
 	public function setProhibitOvernightLayovers($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitOvernightLayovers = $value;
 		}
 		return $this;
@@ -508,7 +508,7 @@ class AirLegModifiers extends \Nette\Object
 	 */
 	public function setMaxConnectionTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->maxConnectionTime = $value;
 		}
 		return $this;
@@ -538,7 +538,7 @@ class AirLegModifiers extends \Nette\Object
 	 */
 	public function setReturnFirstAvailableOnly($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->returnFirstAvailableOnly = $value;
 		}
 		return $this;
@@ -569,7 +569,7 @@ class AirLegModifiers extends \Nette\Object
 	 */
 	public function setAllowDirectAccess($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->allowDirectAccess = $value;
 		}
 		return $this;
@@ -598,7 +598,7 @@ class AirLegModifiers extends \Nette\Object
 	 */
 	public function setProhibitMultiAirportConnection($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitMultiAirportConnection = $value;
 		}
 		return $this;
@@ -629,7 +629,7 @@ class AirLegModifiers extends \Nette\Object
 	 */
 	public function setPreferNonStop($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->preferNonStop = $value;
 		}
 		return $this;
@@ -660,7 +660,7 @@ class AirLegModifiers extends \Nette\Object
 	 */
 	public function setOrderBy($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->orderBy = $value;
 		}
 		return $this;

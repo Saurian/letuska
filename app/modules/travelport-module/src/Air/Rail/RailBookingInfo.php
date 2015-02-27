@@ -100,7 +100,7 @@ class RailBookingInfo extends \Nette\Object
 	 */
 	public function setOptionalService($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->optionalService = $value;
 		}
 		return $this;

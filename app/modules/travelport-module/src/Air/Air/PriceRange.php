@@ -17,21 +17,21 @@ class PriceRange extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $defaultCurrency;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $startPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $endPrice;
 
@@ -46,7 +46,7 @@ class PriceRange extends \Nette\Object
 	 */
 	public function setDefaultCurrency($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->defaultCurrency = $value;
 		}
 		return $this;
@@ -75,7 +75,7 @@ class PriceRange extends \Nette\Object
 	 */
 	public function setStartPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->startPrice = $value;
 		}
 		return $this;
@@ -104,7 +104,7 @@ class PriceRange extends \Nette\Object
 	 */
 	public function setEndPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->endPrice = $value;
 		}
 		return $this;

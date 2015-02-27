@@ -10,9 +10,9 @@
 namespace TravelPortModule\Managers;
 
 
-use Tracy\Debugger;
-use TravelPortModule\Air\AvailabilitySearchReq;
-use TravelPortModule\Air\AvailabilitySearchRsp;
+use Nette;
+use TravelPortModule\Air\AirPriceReq;
+use TravelPortModule\Air\AirPriceRsp;
 use TravelPortModule\Air\LowFareSearchReq;
 use TravelPortModule\Air\LowFareSearchRsp;
 use TravelPortModule\InvalidArgumentException;
@@ -20,10 +20,14 @@ use TravelPortModule\TravelPortSoapClient;
 
 class AirClientManager extends TravelPortSoapClient
 {
-    const SERVICE_NS = 'air';
-    const SERVICE_NAME = 'AirService';
+    const PASSENGER_TYPE_ADT = 'ADT';
+    const PASSENGER_TYPE_INF = 'INF';
+    const PASSENGER_TYPE_YTH = 'YTH';
+    const PASSENGER_TYPE_CHD = 'CHD';
+    const PASSENGER_TYPE_SRC = 'SRC';
 
     const KEY_LOWFARE_SEARCH_RSP = 'LowFareSearchRsp';
+    const KEY_AIR_PRICE_RSP = 'AirPriceRsp';
 
     const KEY_FAULT = 'Fault';
     const KEY_FAULT_CODE = 'faultcode';
@@ -67,9 +71,10 @@ class AirClientManager extends TravelPortSoapClient
     {
         $this->setUseCache(true);
 
-        $pcc = $lowFareSearchReq->setPCC();
-        $q  = $pcc->addPointOfSale();
-        $q->setPseudoCityCode('3Z1Q')->setProviderCode('1G');
+//        $pcc = $lowFareSearchReq->setPCC();
+//        $point  = $pcc->addPointOfSale();
+//        $point->setPseudoCityCode('3Z1Q')->setProviderCode('1G');
+
 //        $pcc->addPointOfSale()->setPseudoCityCode('3Z1Q');
 //        $pcc->setOverridePCC()->setPseudoCityCode('3Z1Q');
 
@@ -96,8 +101,10 @@ class AirClientManager extends TravelPortSoapClient
             }
         }
 
+
         $responseA = $this->responseToArray($this->getLastResponse())['Body'][self::KEY_LOWFARE_SEARCH_RSP];
         $this->createResponse($responseO, $responseA);
+//        $this->onLoad($this);
         return $responseO;
     }
 
@@ -122,10 +129,33 @@ class AirClientManager extends TravelPortSoapClient
 
     public function AirPriceReq(AirPriceReq $airPriceReq)
     {
+        $this->setUseCache(true);
 
+        $this->__soapCall('service', array($airPriceReq), array(self::CUSTOM_GENERATE => true));
 
-        $airPriceRsp = new AirPriceRsp;
-        return $airPriceRsp;
+        $responseObj = new AirPriceRsp();
+
+        $responseArray = $this->responseToArray($this->getLastResponse())['Body'];
+
+        if (isset($responseArray[self::KEY_FAULT])) {
+            if ($responseArray[self::KEY_FAULT][self::KEY_FAULT_CODE] == 'Server.Data' ||
+                $responseArray[self::KEY_FAULT][self::KEY_FAULT_CODE] == 'Server.ValidationException' ||
+                $responseArray[self::KEY_FAULT][self::KEY_FAULT_CODE] == 'Server.Business'
+            ) {
+                $detailError = isset($responseArray[self::KEY_FAULT]['detail']['ErrorInfo'])
+                    ? implode(', ',$responseArray[self::KEY_FAULT]['detail']['ErrorInfo'])
+                    : '';
+
+                throw new InvalidArgumentException($responseArray[self::KEY_FAULT][self::KEY_FAULT_STRING] . " $detailError");
+
+            } else {
+                throw new InvalidArgumentException($responseArray[self::KEY_FAULT][self::KEY_FAULT_STRING]);
+            }
+        }
+
+        $responseA = $this->responseToArray($this->getLastResponse())['Body'][self::KEY_AIR_PRICE_RSP];
+        $this->createResponse($responseObj, $responseA);
+        return $responseObj;
     }
 
 
@@ -335,6 +365,27 @@ class AirClientManager extends TravelPortSoapClient
 
         $flightDetailsRsp = new FlightDetailsRsp;
         return $flightDetailsRsp;
+    }
+
+
+    /**
+     * @param array  $objects
+     * @param string $key
+     *
+     * @return array
+     */
+    public function findOneObjectByKey(array $objects, $key)
+    {
+        /** @var Nette\Object $object */
+        foreach ($objects as $object) {
+            $reflection = $object->getReflection();
+            if ($reflection->hasMethod('getKey')) {
+                if ($object->key == $key) {
+                    return $object;
+                }
+            }
+        }
+        return NULL;
     }
 
 

@@ -42,7 +42,7 @@ class CodeshareInfo extends \Nette\Object
 	 */
 	public function setOperatingCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->operatingCarrier = $value;
 		}
 		return $this;
@@ -73,7 +73,7 @@ class CodeshareInfo extends \Nette\Object
 	 */
 	public function setOperatingFlightNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->operatingFlightNumber = $value;
 		}
 		return $this;

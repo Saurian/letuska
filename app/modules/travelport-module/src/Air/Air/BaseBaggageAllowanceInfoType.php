@@ -34,14 +34,14 @@ class BaseBaggageAllowanceInfoType extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $origin;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $destination;
 
@@ -166,7 +166,7 @@ class BaseBaggageAllowanceInfoType extends \Nette\Object
 	 */
 	public function setOrigin($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->origin = $value;
 		}
 		return $this;
@@ -193,7 +193,7 @@ class BaseBaggageAllowanceInfoType extends \Nette\Object
 	 */
 	public function setDestination($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destination = $value;
 		}
 		return $this;
@@ -220,7 +220,7 @@ class BaseBaggageAllowanceInfoType extends \Nette\Object
 	 */
 	public function setCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrier = $value;
 		}
 		return $this;

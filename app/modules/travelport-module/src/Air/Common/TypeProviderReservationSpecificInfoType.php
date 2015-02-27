@@ -33,7 +33,7 @@ class TypeProviderReservationSpecificInfoType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $providerReservationLevel;
 
@@ -41,7 +41,7 @@ class TypeProviderReservationSpecificInfoType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $reservationLevel;
 
@@ -135,7 +135,7 @@ class TypeProviderReservationSpecificInfoType extends \Nette\Object
 	 */
 	public function setProviderReservationLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerReservationLevel = $value;
 		}
 		return $this;
@@ -164,7 +164,7 @@ class TypeProviderReservationSpecificInfoType extends \Nette\Object
 	 */
 	public function setReservationLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->reservationLevel = $value;
 		}
 		return $this;

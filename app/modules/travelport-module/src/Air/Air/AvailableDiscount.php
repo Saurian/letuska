@@ -25,7 +25,7 @@ class AvailableDiscount extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -40,7 +40,7 @@ class AvailableDiscount extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $description;
 
@@ -48,7 +48,7 @@ class AvailableDiscount extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $discountQualifier;
 
@@ -114,7 +114,7 @@ class AvailableDiscount extends \Nette\Object
 	 */
 	public function setAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->amount = $value;
 		}
 		return $this;
@@ -141,7 +141,7 @@ class AvailableDiscount extends \Nette\Object
 	 */
 	public function setPercent($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->percent = $value;
 		}
 		return $this;
@@ -168,7 +168,7 @@ class AvailableDiscount extends \Nette\Object
 	 */
 	public function setDescription($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->description = $value;
 		}
 		return $this;
@@ -195,7 +195,7 @@ class AvailableDiscount extends \Nette\Object
 	 */
 	public function setDiscountQualifier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->discountQualifier = $value;
 		}
 		return $this;

@@ -1,3 +1,9 @@
+{*
+<div class="navbar navbar-fixed-top" role="navigation">
+	<div data-header='{"activeMenu":"hotels", "baseDomain":"dev.hp.letuska.cz"}'></div>
+</div>
+*}
+
 <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
@@ -7,13 +13,34 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" n:href="Homepage:">Superletuška</a>
+			<a class="navbar-brand" n:href="Homepage: pricer_pref => 'MUP', journey_type => 'RT', dep_0=>'', arr_0=>'', adtcount => 1, infcount=>0, chdcount=>0, ythcount=>0, ycdcount=>0, full_date_0=>'', full_date_1=>'', full_date_2=>''">Superletuška</a>
+
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li n:class="$presenter->isLinkCurrent('Homepage:default') ? active"><a n:href="Homepage:">Home</a></li>
 				<li n:class="$presenter->isLinkCurrent('Homepage:search') ? active"><a n:href="Homepage:search">Search</a></li>
-				<li n:class="$presenter->isLinkCurrent('Homepage:contact') ? active"><a href="#contact">Contact</a></li>
+				<li n:if="!$user->isLoggedIn()">
+					<button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#signInModal" data-whatever="@mdo">Sign In</button>
+					<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="exampleModalLabel">{_sign_in}</h4>
+								</div>
+								<div class="modal-body">
+									{control signInForm}
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li n:if="$user->isLoggedIn()"><a n:href="Homepage:out">Sign Out</a></li>
+
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">

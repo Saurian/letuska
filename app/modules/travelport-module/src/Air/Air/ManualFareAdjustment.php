@@ -150,7 +150,7 @@ class ManualFareAdjustment extends \Nette\Object
 	 */
 	public function setPassengerRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->passengerRef = $value;
 		}
 		return $this;
@@ -179,7 +179,7 @@ class ManualFareAdjustment extends \Nette\Object
 	 */
 	public function setTicketDesignator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->ticketDesignator = $value;
 		}
 		return $this;
@@ -208,7 +208,7 @@ class ManualFareAdjustment extends \Nette\Object
 	 */
 	public function setFareType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareType = $value;
 		}
 		return $this;

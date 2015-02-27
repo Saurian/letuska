@@ -30,7 +30,7 @@ class AirAvailInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
@@ -38,7 +38,7 @@ class AirAvailInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $hostTokenRef;
 
@@ -150,7 +150,7 @@ class AirAvailInfo extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -177,7 +177,7 @@ class AirAvailInfo extends \Nette\Object
 	 */
 	public function setHostTokenRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->hostTokenRef = $value;
 		}
 		return $this;

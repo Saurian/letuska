@@ -40,7 +40,7 @@ class OperatingCompany extends \Nette\Object
 	 */
 	public function setCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->code = $value;
 		}
 		return $this;

@@ -44,7 +44,7 @@ class Commission extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -73,7 +73,7 @@ class Commission extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $commissionOverride;
 
@@ -87,7 +87,7 @@ class Commission extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -169,7 +169,7 @@ class Commission extends \Nette\Object
 	 */
 	public function setModifier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->modifier = $value;
 		}
 		return $this;
@@ -198,7 +198,7 @@ class Commission extends \Nette\Object
 	 */
 	public function setAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->amount = $value;
 		}
 		return $this;
@@ -227,7 +227,7 @@ class Commission extends \Nette\Object
 	 */
 	public function setValue($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->value = $value;
 		}
 		return $this;
@@ -256,7 +256,7 @@ class Commission extends \Nette\Object
 	 */
 	public function setPercentage($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->percentage = $value;
 		}
 		return $this;
@@ -285,7 +285,7 @@ class Commission extends \Nette\Object
 	 */
 	public function setBookingTravelerRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bookingTravelerRef = $value;
 		}
 		return $this;
@@ -314,7 +314,7 @@ class Commission extends \Nette\Object
 	 */
 	public function setCommissionOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->commissionOverride = $value;
 		}
 		return $this;

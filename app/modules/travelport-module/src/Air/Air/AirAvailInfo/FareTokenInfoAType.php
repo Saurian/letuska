@@ -15,7 +15,7 @@ class FareTokenInfoAType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $fareInfoRef;
 
@@ -23,7 +23,7 @@ class FareTokenInfoAType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $hostTokenRef;
 

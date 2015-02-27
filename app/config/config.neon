@@ -6,6 +6,7 @@
 #
 parameters:
 	importItems: 5000
+	expirationResponse: '1 hour' #
 	cities: %appDir%\modules\travelport-module\Resources\imports\searchindexcities.json
 	airports: %appDir%\modules\travelport-module\Resources\imports\searchindexairports.json
 	countries: %appDir%\modules\travelport-module\Resources\imports\searchindexcountries.json
@@ -20,13 +21,15 @@ nette:
 			*: App\*Module\Presenters\*Presenter
 
 	session:
-		expiration: 14 days
+		expiration: 7 days
 
 services:
 	- App\RouterFactory
 	- CmsModule\TravelService\RequestFormMapper
 	- TravelPortModule\Air\LowFareSearchReq
 #	- TravelPortModule\Managers\PaymentManager(@payu.default)
+	authorizator: AppModule\Security\Authorizator
+	authenticator: AppModule\Security\Authenticator()
 	router: @App\RouterFactory::createRouter
 
 	managers.AirClientManager: TravelPortModule\Managers\AirClientManager(%airClientManager.options%)
@@ -50,8 +53,14 @@ services:
 		setup:
 			- create
 
-#	cacheStorage:
-#		class: Nette\Caching\Storages\MemoryStorage
+	forms.signInForm:
+		implement: AppModule\Forms\ISignInFormFactory
+		setup:
+			- create
+			- bootstrap3Render
+
+	cacheStorage:
+		class: Nette\Caching\Storages\MemoryStorage
 
 	generateXsdCommand:
 		class: TravelPortModule\Tools\Console\Command\GenerateCommand
@@ -101,6 +110,9 @@ services:
 		class: CmsModule\Doctrine\Console\MigrationsVersionCommand
 		tags: [kdyby.console.command]
 
+	listener.flightLoad:
+		class: TravelPortModule\Managers\FlightStorage
+		tags: [kdyby.subscriber]
 
 translation:
 	debugger: on

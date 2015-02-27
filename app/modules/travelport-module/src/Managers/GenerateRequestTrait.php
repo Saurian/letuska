@@ -13,8 +13,10 @@ namespace TravelPortModule\Managers;
 use DOMDocument;
 use DOMElement;
 use Nette\Object;
+use Nette\Reflection\ClassType;
 use Nette\Reflection\Property;
 use ReflectionProperty;
+use Tracy\Debugger;
 use TravelPortModule\XsdTransfer\UnexpectedValueExceptionn;
 
 trait GenerateRequestTrait
@@ -254,6 +256,21 @@ trait GenerateRequestTrait
                         } elseif (is_array($values) && !isset($values[0])) {
                             $resultClass = $class->$method(null);
                             $this->createResponse($resultClass, $values);
+
+                        } elseif (is_string($values)) {
+                            if ($reflection->getProperty(lcfirst($element))->hasAnnotation('value')) {
+                                $class->$method($values);
+
+                            } else {
+                                $resultClass = $class->$method(null);
+
+                                /** @var ClassType $reflection */
+                                $reflection = $resultClass->getReflection();
+
+                                if ($reflection->hasMethod($method = "setValue")) {
+                                    $resultClass->$method($values);
+                                }
+                            }
 
                         } else {
                              throw new \TravelPortModule\XsdTransfer\UnexpectedValueExceptionn("Not supported [$element] = " . $values);

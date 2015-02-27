@@ -134,7 +134,7 @@ class FlexExploreModifiers extends \Nette\Object
 	 */
 	public function setRadius($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->radius = $value;
 		}
 		return $this;
@@ -163,7 +163,7 @@ class FlexExploreModifiers extends \Nette\Object
 	 */
 	public function setGroupName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->groupName = $value;
 		}
 		return $this;

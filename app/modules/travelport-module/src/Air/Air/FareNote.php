@@ -25,7 +25,7 @@ class FareNote extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $precedence;
 
@@ -33,14 +33,14 @@ class FareNote extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $noteName;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -48,7 +48,7 @@ class FareNote extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -89,7 +89,7 @@ class FareNote extends \Nette\Object
 	 */
 	public function setPrecedence($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->precedence = $value;
 		}
 		return $this;
@@ -116,7 +116,7 @@ class FareNote extends \Nette\Object
 	 */
 	public function setNoteName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->noteName = $value;
 		}
 		return $this;
@@ -145,7 +145,7 @@ class FareNote extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -175,7 +175,7 @@ class FareNote extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

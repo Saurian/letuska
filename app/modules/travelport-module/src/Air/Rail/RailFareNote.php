@@ -108,7 +108,7 @@ class RailFareNote extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -138,7 +138,7 @@ class RailFareNote extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

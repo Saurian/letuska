@@ -86,7 +86,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $openSegment;
 
@@ -109,7 +109,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $cabinClass;
 
@@ -123,14 +123,14 @@ class TypeBaseAirSegmentType extends SegmentType
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $origin;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $destination;
 
@@ -138,7 +138,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $departureTime;
 
@@ -146,7 +146,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $arrivalTime;
 
@@ -154,7 +154,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $flightTime;
 
@@ -162,7 +162,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $travelTime;
 
@@ -170,21 +170,21 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $distance;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeSupplierCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $supplierCode;
 
@@ -192,7 +192,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $participantLevel;
 
@@ -200,7 +200,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $linkAvailability;
 
@@ -208,7 +208,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $polledAvailabilityOption;
 
@@ -216,7 +216,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $availabilityDisplayType;
 
@@ -261,7 +261,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $seamless;
 
@@ -269,7 +269,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $changeOfPlane;
 
@@ -277,7 +277,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $guaranteedPaymentCarrier;
 
@@ -285,7 +285,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $hostTokenRef;
 
@@ -307,7 +307,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $optionalServicesIndicator;
 
@@ -322,7 +322,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $aPISRequirementsRef;
 
@@ -330,7 +330,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $blackListed;
 
@@ -338,7 +338,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $operationalStatus;
 
@@ -712,7 +712,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setOpenSegment($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->openSegment = $value;
 		}
 		return $this;
@@ -770,7 +770,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrier = $value;
 		}
 		return $this;
@@ -801,7 +801,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setCabinClass($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->cabinClass = $value;
 		}
 		return $this;
@@ -833,7 +833,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setFlightNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->flightNumber = $value;
 		}
 		return $this;
@@ -917,7 +917,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setDepartureTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->departureTime = $value;
 		}
 		return $this;
@@ -947,7 +947,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setArrivalTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->arrivalTime = $value;
 		}
 		return $this;
@@ -977,7 +977,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setFlightTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->flightTime = $value;
 		}
 		return $this;
@@ -1006,7 +1006,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setTravelTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelTime = $value;
 		}
 		return $this;
@@ -1035,7 +1035,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setDistance($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->distance = $value;
 		}
 		return $this;
@@ -1063,7 +1063,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -1090,7 +1090,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setSupplierCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierCode = $value;
 		}
 		return $this;
@@ -1119,7 +1119,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setParticipantLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->participantLevel = $value;
 		}
 		return $this;
@@ -1150,7 +1150,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setLinkAvailability($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->linkAvailability = $value;
 		}
 		return $this;
@@ -1181,7 +1181,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setPolledAvailabilityOption($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->polledAvailabilityOption = $value;
 		}
 		return $this;
@@ -1218,7 +1218,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setAvailabilityDisplayType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->availabilityDisplayType = $value;
 		}
 		return $this;
@@ -1253,7 +1253,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setClassOfService($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->classOfService = $value;
 		}
 		return $this;
@@ -1282,7 +1282,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setETicketability($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->eTicketability = $value;
 		}
 		return $this;
@@ -1313,7 +1313,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setEquipment($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->equipment = $value;
 		}
 		return $this;
@@ -1345,7 +1345,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setMarriageGroup($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->marriageGroup = $value;
 		}
 		return $this;
@@ -1377,7 +1377,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setNumberOfStops($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->numberOfStops = $value;
 		}
 		return $this;
@@ -1408,7 +1408,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setSeamless($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->seamless = $value;
 		}
 		return $this;
@@ -1439,7 +1439,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setChangeOfPlane($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->changeOfPlane = $value;
 		}
 		return $this;
@@ -1470,7 +1470,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setGuaranteedPaymentCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->guaranteedPaymentCarrier = $value;
 		}
 		return $this;
@@ -1501,7 +1501,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setHostTokenRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->hostTokenRef = $value;
 		}
 		return $this;
@@ -1531,7 +1531,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setProviderReservationInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerReservationInfoRef = $value;
 		}
 		return $this;
@@ -1560,7 +1560,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setPassiveProviderReservationInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->passiveProviderReservationInfoRef = $value;
 		}
 		return $this;
@@ -1590,7 +1590,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setOptionalServicesIndicator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->optionalServicesIndicator = $value;
 		}
 		return $this;
@@ -1621,7 +1621,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setAvailabilitySource($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->availabilitySource = $value;
 		}
 		return $this;
@@ -1652,7 +1652,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setAPISRequirementsRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->aPISRequirementsRef = $value;
 		}
 		return $this;
@@ -1682,7 +1682,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setBlackListed($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->blackListed = $value;
 		}
 		return $this;
@@ -1713,7 +1713,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setOperationalStatus($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->operationalStatus = $value;
 		}
 		return $this;
@@ -1744,7 +1744,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setNumberInParty($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->numberInParty = $value;
 		}
 		return $this;
@@ -1773,7 +1773,7 @@ class TypeBaseAirSegmentType extends SegmentType
 	 */
 	public function setRailCoachNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railCoachNumber = $value;
 		}
 		return $this;

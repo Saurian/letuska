@@ -23,7 +23,7 @@ class Document extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $type;
 
@@ -31,7 +31,7 @@ class Document extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $level;
 
@@ -46,7 +46,7 @@ class Document extends \Nette\Object
 	 */
 	public function setSequence($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->sequence = $value;
 		}
 		return $this;
@@ -76,7 +76,7 @@ class Document extends \Nette\Object
 	 */
 	public function setType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->type = $value;
 		}
 		return $this;
@@ -107,7 +107,7 @@ class Document extends \Nette\Object
 	 */
 	public function setLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->level = $value;
 		}
 		return $this;

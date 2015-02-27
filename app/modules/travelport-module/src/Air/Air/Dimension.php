@@ -15,7 +15,7 @@ class Dimension extends TypeUnitOfMeasureType
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $type;
 
@@ -30,7 +30,7 @@ class Dimension extends TypeUnitOfMeasureType
 	 */
 	public function setType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->type = $value;
 		}
 		return $this;

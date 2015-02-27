@@ -12,7 +12,6 @@ use TravelPortModule\Air\ExemptTaxes\CompanyNameAType;
 use TravelPortModule\Air\ExemptTaxes\TaxTerritoryAType;
 use TravelPortModule\Common\TypeCountryType;
 use TravelPortModule\XsdTransfer\OutOfRangeException;
-use string;
 
 class ExemptTaxes extends \Nette\Object
 {
@@ -24,7 +23,7 @@ class ExemptTaxes extends \Nette\Object
 	protected $countryCode = array();
 
 	/**
-	 * @var \\string[]
+	 * @var string[] @value
 	 * @xsdns TravelPortModule\Air
 	 */
 	protected $taxCategory = array();
@@ -33,7 +32,7 @@ class ExemptTaxes extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $allTaxes;
 
@@ -116,11 +115,10 @@ class ExemptTaxes extends \Nette\Object
 	 * @param String $taxCategory
 	 * @return String
 	 */
-	public function addTaxCategory(string $taxCategory = NULL)
+	public function addTaxCategory($taxCategory)
 	{
-		$taxCategory = $taxCategory ?: new String();
 		$this->taxCategory[] = $taxCategory;
-		return $taxCategory;
+		return $this;
 	}
 
 
@@ -172,7 +170,7 @@ class ExemptTaxes extends \Nette\Object
 	 */
 	public function setAllTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->allTaxes = $value;
 		}
 		return $this;
@@ -201,7 +199,7 @@ class ExemptTaxes extends \Nette\Object
 	 */
 	public function setTaxTerritory($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxTerritory = $value;
 		}
 		return $this;
@@ -230,7 +228,7 @@ class ExemptTaxes extends \Nette\Object
 	 */
 	public function setCompanyName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->companyName = $value;
 		}
 		return $this;

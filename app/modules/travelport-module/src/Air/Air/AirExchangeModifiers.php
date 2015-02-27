@@ -122,7 +122,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setBookingDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bookingDate = $value;
 		}
 		return $this;
@@ -149,7 +149,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setTicketingDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->ticketingDate = $value;
 		}
 		return $this;
@@ -176,7 +176,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setAccountCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->accountCode = $value;
 		}
 		return $this;
@@ -203,7 +203,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setTicketDesignator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->ticketDesignator = $value;
 		}
 		return $this;
@@ -230,7 +230,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setAllowPenaltyFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->allowPenaltyFares = $value;
 		}
 		return $this;
@@ -257,7 +257,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setPrivateFaresOnly($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->privateFaresOnly = $value;
 		}
 		return $this;
@@ -286,7 +286,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setUniversalRecordLocatorCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->universalRecordLocatorCode = $value;
 		}
 		return $this;
@@ -317,7 +317,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setProviderLocatorCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerLocatorCode = $value;
 		}
 		return $this;
@@ -349,7 +349,7 @@ class AirExchangeModifiers extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;

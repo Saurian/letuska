@@ -15,7 +15,7 @@ class MediaItem extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $caption;
 
@@ -39,7 +39,7 @@ class MediaItem extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $type;
 
@@ -76,7 +76,7 @@ class MediaItem extends \Nette\Object
 	 */
 	public function setCaption($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->caption = $value;
 		}
 		return $this;
@@ -103,7 +103,7 @@ class MediaItem extends \Nette\Object
 	 */
 	public function setHeight($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->height = $value;
 		}
 		return $this;
@@ -130,7 +130,7 @@ class MediaItem extends \Nette\Object
 	 */
 	public function setWidth($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->width = $value;
 		}
 		return $this;
@@ -157,7 +157,7 @@ class MediaItem extends \Nette\Object
 	 */
 	public function setType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->type = $value;
 		}
 		return $this;
@@ -184,7 +184,7 @@ class MediaItem extends \Nette\Object
 	 */
 	public function setUrl($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->url = $value;
 		}
 		return $this;
@@ -211,7 +211,7 @@ class MediaItem extends \Nette\Object
 	 */
 	public function setIcon($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->icon = $value;
 		}
 		return $this;
@@ -238,7 +238,7 @@ class MediaItem extends \Nette\Object
 	 */
 	public function setSizeCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->sizeCode = $value;
 		}
 		return $this;

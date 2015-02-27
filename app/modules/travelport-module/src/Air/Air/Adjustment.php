@@ -16,7 +16,7 @@ class Adjustment extends \Nette\Object
 
 	/**
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -30,14 +30,14 @@ class Adjustment extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $adjustedTotalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateAdjustedTotalPrice;
 
@@ -148,7 +148,7 @@ class Adjustment extends \Nette\Object
 	 */
 	public function setApproximateAdjustedTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateAdjustedTotalPrice = $value;
 		}
 		return $this;
@@ -178,7 +178,7 @@ class Adjustment extends \Nette\Object
 	 */
 	public function setBookingTravelerRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bookingTravelerRef = $value;
 		}
 		return $this;

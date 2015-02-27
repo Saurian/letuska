@@ -25,14 +25,14 @@ class PromoCode extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeSupplierCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $supplierCode;
 

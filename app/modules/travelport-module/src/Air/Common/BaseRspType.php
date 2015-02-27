@@ -27,7 +27,7 @@ class BaseRspType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $traceId;
 
@@ -35,7 +35,7 @@ class BaseRspType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $transactionId;
 
@@ -43,7 +43,7 @@ class BaseRspType extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $responseTime;
 
@@ -51,7 +51,7 @@ class BaseRspType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $commandHistory;
 
@@ -112,7 +112,7 @@ class BaseRspType extends \Nette\Object
 	 */
 	public function setTraceId($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->traceId = $value;
 		}
 		return $this;
@@ -141,7 +141,7 @@ class BaseRspType extends \Nette\Object
 	 */
 	public function setTransactionId($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->transactionId = $value;
 		}
 		return $this;
@@ -170,7 +170,7 @@ class BaseRspType extends \Nette\Object
 	 */
 	public function setResponseTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->responseTime = $value;
 		}
 		return $this;
@@ -199,7 +199,7 @@ class BaseRspType extends \Nette\Object
 	 */
 	public function setCommandHistory($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->commandHistory = $value;
 		}
 		return $this;

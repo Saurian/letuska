@@ -31,7 +31,7 @@ class URL extends \Nette\Object
 	 */
 	public function setType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->type = $value;
 		}
 		return $this;

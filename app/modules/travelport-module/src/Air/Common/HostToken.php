@@ -14,7 +14,7 @@ class HostToken extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $host;
 
@@ -29,7 +29,7 @@ class HostToken extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -37,7 +37,7 @@ class HostToken extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -54,7 +54,7 @@ class HostToken extends \Nette\Object
 	 */
 	public function setHost($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->host = $value;
 		}
 		return $this;
@@ -83,7 +83,7 @@ class HostToken extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -113,7 +113,7 @@ class HostToken extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -143,7 +143,7 @@ class HostToken extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

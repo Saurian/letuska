@@ -31,7 +31,7 @@ class APISRequirements extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $level;
 
@@ -39,7 +39,7 @@ class APISRequirements extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $genderRequired;
 
@@ -47,7 +47,7 @@ class APISRequirements extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $dateOfBirthRequired;
 
@@ -55,7 +55,7 @@ class APISRequirements extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $requiredDocuments;
 
@@ -63,7 +63,7 @@ class APISRequirements extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $nationalityRequired;
 
@@ -126,7 +126,7 @@ class APISRequirements extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -158,7 +158,7 @@ class APISRequirements extends \Nette\Object
 	 */
 	public function setLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->level = $value;
 		}
 		return $this;
@@ -187,7 +187,7 @@ class APISRequirements extends \Nette\Object
 	 */
 	public function setGenderRequired($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->genderRequired = $value;
 		}
 		return $this;
@@ -214,7 +214,7 @@ class APISRequirements extends \Nette\Object
 	 */
 	public function setDateOfBirthRequired($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->dateOfBirthRequired = $value;
 		}
 		return $this;
@@ -243,7 +243,7 @@ class APISRequirements extends \Nette\Object
 	 */
 	public function setRequiredDocuments($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->requiredDocuments = $value;
 		}
 		return $this;
@@ -273,7 +273,7 @@ class APISRequirements extends \Nette\Object
 	 */
 	public function setNationalityRequired($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->nationalityRequired = $value;
 		}
 		return $this;

@@ -15,7 +15,7 @@ class IndustryStandardSSR extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $code;
 
@@ -30,7 +30,7 @@ class IndustryStandardSSR extends \Nette\Object
 	 */
 	public function setCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->code = $value;
 		}
 		return $this;

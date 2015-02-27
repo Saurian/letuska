@@ -268,7 +268,7 @@ class BaseAvailabilitySearchRspType extends BaseSearchRspType
 	 */
 	public function setDistanceUnits($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->distanceUnits = $value;
 		}
 		return $this;

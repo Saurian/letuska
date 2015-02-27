@@ -21,7 +21,7 @@ class TypeFarePenaltyType extends \Nette\Object
 
 	/**
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 

@@ -42,7 +42,7 @@ class DiscountCard extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -50,7 +50,7 @@ class DiscountCard extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -64,7 +64,7 @@ class DiscountCard extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -116,7 +116,7 @@ class DiscountCard extends \Nette\Object
 	 */
 	public function setDescription($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->description = $value;
 		}
 		return $this;
@@ -143,7 +143,7 @@ class DiscountCard extends \Nette\Object
 	 */
 	public function setNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->number = $value;
 		}
 		return $this;
@@ -172,7 +172,7 @@ class DiscountCard extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -202,7 +202,7 @@ class DiscountCard extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

@@ -110,7 +110,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setRequireSingleCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->requireSingleCarrier = $value;
 		}
 		return $this;
@@ -139,7 +139,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setMaxConnections($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->maxConnections = $value;
 		}
 		return $this;
@@ -170,7 +170,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setMaxStops($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->maxStops = $value;
 		}
 		return $this;
@@ -199,7 +199,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setNonStopDirects($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->nonStopDirects = $value;
 		}
 		return $this;
@@ -226,7 +226,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setStopDirects($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->stopDirects = $value;
 		}
 		return $this;
@@ -253,7 +253,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setSingleOnlineCon($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->singleOnlineCon = $value;
 		}
 		return $this;
@@ -280,7 +280,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setDoubleOnlineCon($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->doubleOnlineCon = $value;
 		}
 		return $this;
@@ -307,7 +307,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setTripleOnlineCon($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->tripleOnlineCon = $value;
 		}
 		return $this;
@@ -334,7 +334,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setSingleInterlineCon($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->singleInterlineCon = $value;
 		}
 		return $this;
@@ -361,7 +361,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setDoubleInterlineCon($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->doubleInterlineCon = $value;
 		}
 		return $this;
@@ -388,7 +388,7 @@ class FlightType extends \Nette\Object
 	 */
 	public function setTripleInterlineCon($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->tripleInterlineCon = $value;
 		}
 		return $this;

@@ -17,42 +17,42 @@ class CarryOnDetailsAType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $applicableCarryOnBags;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $basePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateBasePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $taxes;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $totalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateTotalPrice;
 
@@ -67,7 +67,7 @@ class CarryOnDetailsAType extends \Nette\Object
 	 */
 	public function setApplicableCarryOnBags($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->applicableCarryOnBags = $value;
 		}
 		return $this;
@@ -95,7 +95,7 @@ class CarryOnDetailsAType extends \Nette\Object
 	 */
 	public function setBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->basePrice = $value;
 		}
 		return $this;
@@ -122,7 +122,7 @@ class CarryOnDetailsAType extends \Nette\Object
 	 */
 	public function setApproximateBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateBasePrice = $value;
 		}
 		return $this;
@@ -149,7 +149,7 @@ class CarryOnDetailsAType extends \Nette\Object
 	 */
 	public function setTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxes = $value;
 		}
 		return $this;
@@ -176,7 +176,7 @@ class CarryOnDetailsAType extends \Nette\Object
 	 */
 	public function setTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->totalPrice = $value;
 		}
 		return $this;
@@ -203,7 +203,7 @@ class CarryOnDetailsAType extends \Nette\Object
 	 */
 	public function setApproximateTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTotalPrice = $value;
 		}
 		return $this;

@@ -31,7 +31,7 @@ class JourneyRemark extends \Nette\Object
 	 */
 	public function setCategory($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->category = $value;
 		}
 		return $this;

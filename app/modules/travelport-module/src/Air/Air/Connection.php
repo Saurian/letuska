@@ -21,7 +21,7 @@ class Connection extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $changeOfPlane;
 
@@ -29,7 +29,7 @@ class Connection extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $changeOfTerminal;
 
@@ -37,7 +37,7 @@ class Connection extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $changeOfAirport;
 
@@ -45,7 +45,7 @@ class Connection extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $stopOver;
 
@@ -123,7 +123,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setChangeOfPlane($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->changeOfPlane = $value;
 		}
 		return $this;
@@ -154,7 +154,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setChangeOfTerminal($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->changeOfTerminal = $value;
 		}
 		return $this;
@@ -185,7 +185,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setChangeOfAirport($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->changeOfAirport = $value;
 		}
 		return $this;
@@ -216,7 +216,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setStopOver($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->stopOver = $value;
 		}
 		return $this;
@@ -247,7 +247,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setMinConnectionTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->minConnectionTime = $value;
 		}
 		return $this;
@@ -278,7 +278,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setDuration($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->duration = $value;
 		}
 		return $this;
@@ -309,7 +309,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setSegmentIndex($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->segmentIndex = $value;
 		}
 		return $this;
@@ -340,7 +340,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setFlightDetailsIndex($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->flightDetailsIndex = $value;
 		}
 		return $this;
@@ -372,7 +372,7 @@ class Connection extends \Nette\Object
 	 */
 	public function setIncludeStopOverToFareQuote($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->includeStopOverToFareQuote = $value;
 		}
 		return $this;

@@ -32,7 +32,7 @@ class ModifyRulesAType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $providerDefinedModificationType;
 
@@ -99,7 +99,7 @@ class ModifyRulesAType extends \Nette\Object
 	 */
 	public function setSupportedModifications($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supportedModifications = $value;
 		}
 		return $this;
@@ -128,7 +128,7 @@ class ModifyRulesAType extends \Nette\Object
 	 */
 	public function setProviderDefinedModificationType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerDefinedModificationType = $value;
 		}
 		return $this;

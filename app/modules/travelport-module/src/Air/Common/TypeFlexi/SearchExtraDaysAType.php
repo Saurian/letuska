@@ -38,7 +38,7 @@ class SearchExtraDaysAType extends \Nette\Object
 	 */
 	public function setDaysBefore($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->daysBefore = $value;
 		}
 		return $this;
@@ -67,7 +67,7 @@ class SearchExtraDaysAType extends \Nette\Object
 	 */
 	public function setDaysAfter($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->daysAfter = $value;
 		}
 		return $this;

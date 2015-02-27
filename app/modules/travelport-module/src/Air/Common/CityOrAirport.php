@@ -64,7 +64,7 @@ class CityOrAirport extends LocationType
 	 */
 	public function setPreferCity($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->preferCity = $value;
 		}
 		return $this;

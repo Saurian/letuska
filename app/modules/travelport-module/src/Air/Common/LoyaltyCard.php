@@ -38,7 +38,7 @@ class LoyaltyCard extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $allianceLevel;
 
@@ -52,7 +52,7 @@ class LoyaltyCard extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -60,7 +60,7 @@ class LoyaltyCard extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -75,7 +75,7 @@ class LoyaltyCard extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $status;
 
@@ -83,7 +83,7 @@ class LoyaltyCard extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $membershipStatus;
 
@@ -91,7 +91,7 @@ class LoyaltyCard extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $freeText;
 
@@ -172,7 +172,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -226,7 +226,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setAllianceLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->allianceLevel = $value;
 		}
 		return $this;
@@ -254,7 +254,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setMembershipProgram($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->membershipProgram = $value;
 		}
 		return $this;
@@ -284,7 +284,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -314,7 +314,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;
@@ -367,7 +367,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setStatus($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->status = $value;
 		}
 		return $this;
@@ -394,7 +394,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setMembershipStatus($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->membershipStatus = $value;
 		}
 		return $this;
@@ -421,7 +421,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setFreeText($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->freeText = $value;
 		}
 		return $this;
@@ -448,7 +448,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setSupplierType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierType = $value;
 		}
 		return $this;
@@ -475,7 +475,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->level = $value;
 		}
 		return $this;
@@ -502,7 +502,7 @@ class LoyaltyCard extends \Nette\Object
 	 */
 	public function setPriorityCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->priorityCode = $value;
 		}
 		return $this;

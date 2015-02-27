@@ -338,7 +338,9 @@ class Generator extends SchemaReader
             $type->getArg()->getType()->setName($typeClass); // set repaired class name from process validate class name
             $classFullName = $type->getArg()->getType()->getFullName();
 
-            $class->getNamespace()->addUse($classFullName); // add use to namespace
+            if (!$this->isScalarType($type->getArg()->getType()->getName()))
+                $class->getNamespace()->addUse($classFullName); // add use to namespace
+
             $class->getNamespace()->addUse('TravelPortModule\XsdTransfer\OutOfRangeException'); // add exception use to namespace
 
 
@@ -353,21 +355,43 @@ class Generator extends SchemaReader
             /*
              * adder
              */
-            $adderMethod = $class->addMethod('add'.ucfirst($name));
-            $adderMethod
-                ->addBody('$? = $? ?: new ?();', [$name, $name, new PhpLiteral('?'), new PhpLiteral(ucfirst($typeClass))])
-                ->addBody('$this->?[] = $?;', [$name, $name])
-                ->addBody('return $?;', [$name])
-                ->addDocument("add " . ucfirst($name) . PHP_EOL);
+            if ($this->isScalarType($typeClass)) {
 
-            $param = $adderMethod->addParameter($name, NULL)->setTypeHint($classFullName);
+                dump($name);
+                dump($typeClass);
+                dump($class);
 
-            if ($property->getDoc()) {
-                $adderMethod->addDocument($property->getDoc() . PHP_EOL);
+                $adderMethod = $class->addMethod('add'.ucfirst($name));
+                $adderMethod
+                    ->addBody('$this->?[] = $?;', [$name, $name])
+                    ->addBody('return $this;')
+                    ->addDocument("add " . ucfirst($name) . PHP_EOL)
+                    ->addParameter($name);
+
+                if ($property->getDoc()) {
+                    $adderMethod->addDocument($property->getDoc() . PHP_EOL);
+                }
+
+                $adderMethod->addDocument(sprintf('@param %s $%s', ucfirst($typeClass), $name));
+                $adderMethod->addDocument(sprintf('@return %s', ucfirst($typeClass)));
+
+            } else {
+                $adderMethod = $class->addMethod('add'.ucfirst($name));
+                $adderMethod
+                    ->addBody('$? = $? ?: new ?();', [$name, $name, new PhpLiteral('?'), new PhpLiteral(ucfirst($typeClass))])
+                    ->addBody('$this->?[] = $?;', [$name, $name])
+                    ->addBody('return $?;', [$name])
+                    ->addDocument("add " . ucfirst($name) . PHP_EOL);
+
+                $param = $adderMethod->addParameter($name, NULL)->setTypeHint($classFullName);
+
+                if ($property->getDoc()) {
+                    $adderMethod->addDocument($property->getDoc() . PHP_EOL);
+                }
+
+                $adderMethod->addDocument(sprintf('@param %s $%s', ucfirst($typeClass), $name));
+                $adderMethod->addDocument(sprintf('@return %s', ucfirst($typeClass)));
             }
-
-            $adderMethod->addDocument(sprintf('@param %s $%s', ucfirst($typeClass), $name));
-            $adderMethod->addDocument(sprintf('@return %s', ucfirst($typeClass)));
 
             /*
              * setter
@@ -537,8 +561,13 @@ class Generator extends SchemaReader
                 $class->getNamespace()->addUse($type->getFullName());
 
             } else {
-                $doc .= "@var \\{$type->getArg()->getType()->getFullName()}[]";
-                $class->getNamespace()->addUse($type->getArg()->getType()->getFullName());
+                if ($valuable = $this->isScalarType($type->getArg()->getType()->getName()) ? ' @value' : '') {
+                    $doc .= "@var {$type->getArg()->getType()->getName()}[]".$valuable;
+
+                } else {
+                    $doc .= "@var \\{$type->getArg()->getType()->getFullName()}[]".$valuable;
+                    $class->getNamespace()->addUse($type->getArg()->getType()->getFullName());
+                }
             }
             $doc .= PHP_EOL . "@xsdns {$type->getXsdNamespace()}";
             return $doc;
@@ -643,7 +672,7 @@ class Generator extends SchemaReader
 
         } else {
             $setMethod
-                ->addBody('if ($?) {', ['value'])
+                ->addBody('if (NULL !== $?) {', ['value'])
                 ->addBody('    $this->? = ?;', [$methodName, new PhpLiteral('$value')])
                 ->addBody('}');
         }

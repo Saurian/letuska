@@ -492,7 +492,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setOrigin($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->origin = $value;
 		}
 		return $this;
@@ -521,7 +521,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setDestination($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destination = $value;
 		}
 		return $this;
@@ -577,7 +577,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setArrivalTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->arrivalTime = $value;
 		}
 		return $this;
@@ -606,7 +606,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setOriginStationName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->originStationName = $value;
 		}
 		return $this;
@@ -635,7 +635,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setDestinationStationName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destinationStationName = $value;
 		}
 		return $this;
@@ -664,7 +664,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setRailLocOrigin($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railLocOrigin = $value;
 		}
 		return $this;
@@ -693,7 +693,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setRailLocDestination($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railLocDestination = $value;
 		}
 		return $this;
@@ -722,7 +722,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setRouteDescription($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->routeDescription = $value;
 		}
 		return $this;
@@ -751,7 +751,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setJourneyDirection($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->journeyDirection = $value;
 		}
 		return $this;
@@ -780,7 +780,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setJourneyDuration($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->journeyDuration = $value;
 		}
 		return $this;
@@ -809,7 +809,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->totalPrice = $value;
 		}
 		return $this;
@@ -838,7 +838,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->basePrice = $value;
 		}
 		return $this;
@@ -867,7 +867,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setApproximateTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTotalPrice = $value;
 		}
 		return $this;
@@ -896,7 +896,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setApproximateBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateBasePrice = $value;
 		}
 		return $this;
@@ -925,7 +925,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setEquivalentBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->equivalentBasePrice = $value;
 		}
 		return $this;
@@ -955,7 +955,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxes = $value;
 		}
 		return $this;
@@ -986,7 +986,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fees = $value;
 		}
 		return $this;
@@ -1016,7 +1016,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setServices($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->services = $value;
 		}
 		return $this;
@@ -1045,7 +1045,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setApproximateTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTaxes = $value;
 		}
 		return $this;
@@ -1074,7 +1074,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setApproximateFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateFees = $value;
 		}
 		return $this;
@@ -1102,7 +1102,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -1129,7 +1129,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setSupplierCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierCode = $value;
 		}
 		return $this;
@@ -1157,7 +1157,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setStatus($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->status = $value;
 		}
 		return $this;
@@ -1186,7 +1186,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setProviderReservationInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerReservationInfoRef = $value;
 		}
 		return $this;
@@ -1215,7 +1215,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setPassiveProviderReservationInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->passiveProviderReservationInfoRef = $value;
 		}
 		return $this;
@@ -1244,7 +1244,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setTravelOrder($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelOrder = $value;
 		}
 		return $this;
@@ -1273,7 +1273,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setRouteReference($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->routeReference = $value;
 		}
 		return $this;
@@ -1303,7 +1303,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -1333,7 +1333,7 @@ class RailJourney extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

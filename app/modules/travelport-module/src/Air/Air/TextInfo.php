@@ -24,7 +24,7 @@ class TextInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $title;
 
@@ -84,7 +84,7 @@ class TextInfo extends \Nette\Object
 	 */
 	public function setTitle($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->title = $value;
 		}
 		return $this;

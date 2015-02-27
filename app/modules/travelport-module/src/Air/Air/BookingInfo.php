@@ -17,7 +17,7 @@ class BookingInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $bookingCode;
 
@@ -25,7 +25,7 @@ class BookingInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $cabinClass;
 
@@ -99,7 +99,7 @@ class BookingInfo extends \Nette\Object
 	 */
 	public function setCabinClass($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->cabinClass = $value;
 		}
 		return $this;
@@ -151,7 +151,7 @@ class BookingInfo extends \Nette\Object
 	 */
 	public function setSegmentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->segmentRef = $value;
 		}
 		return $this;
@@ -180,7 +180,7 @@ class BookingInfo extends \Nette\Object
 	 */
 	public function setCouponRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->couponRef = $value;
 		}
 		return $this;
@@ -210,7 +210,7 @@ class BookingInfo extends \Nette\Object
 	 */
 	public function setAirItinerarySolutionRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->airItinerarySolutionRef = $value;
 		}
 		return $this;
@@ -239,7 +239,7 @@ class BookingInfo extends \Nette\Object
 	 */
 	public function setHostTokenRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->hostTokenRef = $value;
 		}
 		return $this;

@@ -12,18 +12,23 @@ use CmsModule\TravelService\RequestFormMapper;
 use Goetas\Xsd\XsdToPhp\Naming\ShortNamingStrategy;
 use Kdyby\Doctrine\DuplicateEntryException;
 use Kdyby\Doctrine\EntityManager;
-use Nette,
-    App\Model;
+use Kdyby\Replicator\Container;
+use Nette;
 use Tracy\Debugger;
+use TravelPortModule\Air\AirPriceReq;
+use TravelPortModule\Air\AirPricingInfo;
 use TravelPortModule\Air\AirPricingSolution;
+use TravelPortModule\Air\AirSegment;
 use TravelPortModule\Air\AirSegmentRef;
 use TravelPortModule\Air\Journey;
 use TravelPortModule\Air\LowFareSearchReq;
+use TravelPortModule\Air\LowFareSearchRsp;
 use TravelPortModule\Entities\CountriesEntity;
 use TravelPortModule\Entities\CountryEntity;
 use TravelPortModule\Entities\CountryLangEntity;
 use TravelPortModule\InvalidArgumentException;
 use TravelPortModule\Managers\AirClientManager;
+use TravelPortModule\Managers\FlightStorage;
 use TravelPortModule\Managers\LocationManager;
 use TravelPortModule\Managers\ParametricRequestManager;
 use TravelPortModule\Universal\AirCreateReservationReq;
@@ -37,6 +42,7 @@ class HomepagePresenter extends BasePresenter
 
     const KEY_LOGGER = 'TravelPoint';
 
+    const STORAGE_LFS = 'lowFareSearchRsp';
 
     /** @var AirClientManager @inject */
     public $airClientManager;
@@ -423,68 +429,35 @@ class HomepagePresenter extends BasePresenter
             $this->redirect('this');
     }
 
-    public function renderDefault($id)
+    public function renderDefault()
     {
-        $request = $this->parametricRequestManager->createRequest($this->getAsianaParams(), $this->lowFareSearchRequest);
+        /** @var LowFareSearchForm $form */
+        $form = $this['lowFareSearchForm'];
+        if ($form->isSubmitted()) {
+            return;
+        }
+
+        try {
+            $request = $this->parametricRequestManager->createRequest($this->getAsianaParams(), $this->lowFareSearchRequest);
+
+        } catch (InvalidArgumentException $exc) {
+            $this->flashMessage("Neplatné vstupní parametry", 'danger');
+            return;
+        }
 
         if ($options = $this->airClientManager->getOptions()) {
             $request->setTraceId('test')->setTargetBranch($options['targetBranch'])->setAuthorizedBy($options['authorizedBy']);
         }
 
+//        $response = $this->airClientManager->lowFareSearchReq($request);
+//        $this->airPrice($response);
+
+
         try {
-            $response = $this->airClientManager->lowFareSearchReq($request);
-
-            $flightDetails = $response->getAirSegmentList();
-
-            $data = array();
-            /** @var AirPricingSolution $airPricingSolution */
-            foreach ($response->getAirPricingSolution() as $airPricingSolution) {
-
-                $airSegments = array();
-
-                /** @var Journey $journey */
-                foreach ($airPricingSolution->getJourney() as $journey) {
-
-                    /** @var AirSegmentRef $airSegmentRef */
-                    foreach ($journey->getAirSegmentRef() as $airSegmentRef) {
-                        $airSegmentKey = $airSegmentRef->getKey();
-
-                        if ($object = $this->findObjectByKey($response->getAirSegmentList()->getAirSegment(), $airSegmentKey)) {
-                            $airSegments[] = $object;
-                        }
-                    }
-                }
-
-                $arrivalTime = new Nette\Utils\DateTime(end($airSegments)->arrivalTime);
-                $departureTime = new Nette\Utils\DateTime(reset($airSegments)->departureTime);
-                $origin = reset($airSegments)->origin;
-                $destination = end($airSegments)->destination;
-                $originLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $origin));
-                $destinationLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $destination));
-
-                $data[] = array(
-                    'airPricingSolution' => $airPricingSolution,
-                    'airSegments'        => $airSegments,
-                    'carrier'            => reset($airSegments)->carrier,
-                    'flightNumber'       => reset($airSegments)->flightNumber,
-                    'origin'             => $origin,
-                    'destination'        => $destination,
-                    'originLang'         => $originLang,
-                    'destinationLang'    => $destinationLang,
-                    'departureTime'      => $departureTime,
-                    'arrivalTime'        => $arrivalTime,
-                    'flightType'         => count($airSegments) == 1 ? 'Přímý let' : count($airSegments) - 1 . ' mezipřistání',
-                    'flightTime'         => $departureTime->diff($arrivalTime),
-                );
-            }
+            $this->saveResponse(self::STORAGE_LFS, $response = $this->airClientManager->lowFareSearchReq($request));
 
 
-            $this->template->flightParamDetails = $data;
-
-            //$this->debugInfoGetParams();
-            //$this->debugInfo .= Debugger::dump($response, true);
-
-            $this->template->debugResponse = $this->debugInfo;
+            $this->drawSearchFlightList($response);
 
         } catch (InvalidArgumentException $exc) {
             $this->flashMessage( $exc->getMessage(), 'warning');
@@ -493,23 +466,96 @@ class HomepagePresenter extends BasePresenter
         } catch (\SoapFault $exc) {
             $this->flashMessage($exc->getMessage(), 'danger');
             Debugger::log($exc);
-
         }
 
         if ($this->isAjax()) {
             $this->redrawControl('flash');
             $this->redrawControl('result');
-            $this->redrawControl('resultParams');
             $this->redrawControl('debugResponse');
+        }
+
+    }
+
+
+    private function airPrice(LowFareSearchRsp $lowFareSearchRsp)
+    {
+        foreach ($lowFareSearchRsp->getAirPricingSolution() as $airPricingSolution) {
+
+            $request = new AirPriceReq();
+            $request->setBillingPointOfSaleInfo()->setOriginApplication('uAPI');
+            $request->setTraceId('test')->setTargetBranch($this->airClientManager->getOptions()['targetBranch'])->setAuthorizedBy($this->airClientManager->getOptions()['authorizedBy']);
+
+            /** @var AirPricingInfo $airPricingInfo */
+            foreach ($airPricingSolution->getAirPricingInfo() as $airPricingInfo) {
+                foreach ($airPricingInfo->getPassengerType() as $key => $passengerType) {
+                    $request->addSearchPassenger()
+                        ->setCode($passengerType->getCode())
+                        ->setKey($key + 1);
+                }
+            }
+
+
+            $airSegments = array();
+
+            /** @var Journey $journey */
+            foreach ($airPricingSolution->getJourney() as $journey) {
+
+                /** @var AirSegmentRef $airSegmentRef */
+                foreach ($journey->getAirSegmentRef() as $airSegmentRef) {
+                    $airSegmentKey = $airSegmentRef->getKey();
+
+                    if ($object = $this->airClientManager->findOneObjectByKey($lowFareSearchRsp->getAirSegmentList()->getAirSegment(), $airSegmentKey)) {
+                        $airSegments[] = $object;
+                    }
+                }
+            }
+
+
+            // check only first airPriceSolution
+            if (!empty($airSegments)) {
+
+                $airItinerary = $request->setAirItinerary();
+                $pricingCommand = $request->addAirPricingCommand();
+
+                /** @var AirSegment $airSegment */
+                foreach ($airSegments as $airSegment) {
+
+                    $airSegment->setFlightDetailsRefs(array())->setProviderCode('1G');
+
+//                    dump($airSegment);
+//                    die();
+
+                    $airItinerary->addAirSegment($airSegment);
+
+//                    die(dump($airSegment));
+
+//                    $airItinerary->addAirSegment()
+//                        ->setKey($airSegment->getKey())
+//                        ->setGroup($airSegment->getGroup())
+//                        ->setOrigin($airSegment->getOrigin())
+//                        ->setDestination($airSegment->getDestination())
+//                        ->setCarrier($airSegment->getCarrier())
+//                        ->setProviderCode('1G');
+//                        ->setAirAvailInfos($airSegment->getAirAvailInfo());
+
+
+                    $pricingCommand->addAirSegmentPricingModifiers()->setAirSegmentRef($airSegment->getKey());
+                }
+
+                dump($request);
+
+                $response = $this->airClientManager->AirPriceReq($request);
+                dump($response);
+//                die();
+
+//                die(dump($airItinerary));
+
+                break;
+            }
         }
 
 
 
-
-            /** @var LowFareSearchForm $form */
-//        $form = $this['lowFareSearchForm'];
-//        $form->onSuccess[] = array($this, 'lowFareSearchFormSuccess');
-//        dump($form->request);
 
     }
 
@@ -522,58 +568,8 @@ class HomepagePresenter extends BasePresenter
 
             try {
                 $response = $this->airClientManager->lowFareSearchReq($form->getRequest());
+                $this->drawSearchFlightList($response);
 
-                $flightDetails = $response->getAirSegmentList();
-
-                $data = array();
-                /** @var AirPricingSolution $airPricingSolution */
-                foreach ($response->getAirPricingSolution() as $airPricingSolution) {
-
-                    $airSegments = array();
-
-                    /** @var Journey $journey */
-                    foreach ($airPricingSolution->getJourney() as $journey) {
-
-                        /** @var AirSegmentRef $airSegmentRef */
-                        foreach ($journey->getAirSegmentRef() as $airSegmentRef) {
-                            $airSegmentKey = $airSegmentRef->getKey();
-
-                            if ($object = $this->findObjectByKey($response->getAirSegmentList()->getAirSegment(), $airSegmentKey)) {
-                                $airSegments[] = $object;
-                            }
-                        }
-                    }
-
-                    $arrivalTime = new Nette\Utils\DateTime(end($airSegments)->arrivalTime);
-                    $departureTime = new Nette\Utils\DateTime(reset($airSegments)->departureTime);
-                    $origin = reset($airSegments)->origin;
-                    $destination = end($airSegments)->destination;
-                    $originLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $origin));
-                    $destinationLang = $this->locationManager->getAirportLangDao()->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $destination));
-
-                    $data[] = array(
-                        'airPricingSolution' => $airPricingSolution,
-                        'airSegments'        => $airSegments,
-                        'carrier'            => reset($airSegments)->carrier,
-                        'flightNumber'       => reset($airSegments)->flightNumber,
-                        'origin'             => $origin,
-                        'destination'        => $destination,
-                        'originLang'         => $originLang,
-                        'destinationLang'    => $destinationLang,
-                        'departureTime'      => $departureTime,
-                        'arrivalTime'        => $arrivalTime,
-                        'flightType'         => count($airSegments) == 1 ? 'Přímý let' : count($airSegments) - 1 . ' mezipřistání',
-                        'flightTime'         => $departureTime->diff($arrivalTime),
-                    );
-                }
-
-
-                $this->template->flightDetails = $data;
-
-                //$this->debugInfoGetParams();
-                //$this->debugInfo .= Debugger::dump($response, true);
-
-                $this->template->debugResponse = $this->debugInfo;
 
             } catch (InvalidArgumentException $exc) {
                 $this->flashMessage( $exc->getMessage(), 'warning');
@@ -591,9 +587,65 @@ class HomepagePresenter extends BasePresenter
                 $this->redrawControl('debugResponse');
             }
         }
-
     }
 
+
+    private function drawSearchFlightList(LowFareSearchRsp $response)
+    {
+        $data = array();
+        /** @var AirPricingSolution $airPricingSolution */
+        foreach ($response->getAirPricingSolution() as $airPricingSolution) {
+
+            $airSegments = array();
+
+            /** @var Journey $journey */
+            foreach ($airPricingSolution->getJourney() as $journey) {
+
+                /** @var AirSegmentRef $airSegmentRef */
+                foreach ($journey->getAirSegmentRef() as $airSegmentRef) {
+                    $airSegmentKey = $airSegmentRef->getKey();
+
+                    if ($object = $this->findObjectByKey($response->getAirSegmentList()->getAirSegment(), $airSegmentKey)) {
+                        $airSegments[] = $object;
+                    }
+                }
+            }
+
+            // last target flight group
+            $group = $this->parametricRequestManager->getLastFlightGroup($this->getAsianaParams());
+            $groupAirSegments= $this->findObjectsByGroup($airSegments, 0);
+
+            $arrivalTime = new Nette\Utils\DateTime(end($groupAirSegments)->arrivalTime);
+            $departureTime = new Nette\Utils\DateTime(reset($groupAirSegments)->departureTime);
+            $origin = reset($groupAirSegments)->origin;
+            $destination = end($groupAirSegments)->destination;
+            $originLang = $this->locationManager->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $origin));
+            $destinationLang = $this->locationManager->findOneBy(array('lang' => $this->translator->getLocale(), 'airport.iata' => $destination));
+
+            $data[] = array(
+                'airPricingSolution' => $airPricingSolution,
+                'airSegments'        => $airSegments,
+                'carrier'            => reset($airSegments)->carrier,
+                'flightNumber'       => reset($airSegments)->flightNumber,
+                'origin'             => $origin,
+                'destination'        => $destination,
+                'originLang'         => $originLang,
+                'destinationLang'    => $destinationLang,
+                'departureTime'      => $departureTime,
+                'arrivalTime'        => $arrivalTime,
+                'flightType'         => count($groupAirSegments) == 1 ? 'Přímý let' : count($groupAirSegments) - 1 . ' mezipřistání',
+                'flightTime'         => $departureTime->diff($arrivalTime),
+            );
+        }
+
+        $this->debugInfoGetParams();
+
+        $this->debugInfo .= Debugger::dump($this->airClientManager->getLastRequest(), true);
+        $this->debugInfo .= Debugger::dump($response, true);
+
+        $this->template->flightDetails = $data;
+        $this->template->debugResponse = $this->debugInfo;
+    }
 
     private function getAsianaParams()
     {
@@ -672,6 +724,29 @@ class HomepagePresenter extends BasePresenter
 
 
     /**
+     * @param array  $objects
+     * @param string $group
+     *
+     * @return array
+     */
+    private function findObjectsByGroup(array $objects, $group)
+    {
+        $result = array();
+
+        /** @var Nette\Object $object */
+        foreach ($objects as $object) {
+            $reflection = $object->getReflection();
+            if ($reflection->hasMethod('getGroup')) {
+                if ($object->group == $group) {
+                    $result[] = $object;
+                }
+            }
+        }
+        return $result;
+    }
+
+
+    /**
      * @return \AppModule\Forms\AvailabilitySearchForm
      */
     protected function createComponentAvailabilitySearchForm()
@@ -696,6 +771,104 @@ class HomepagePresenter extends BasePresenter
                 'traceId' => $options['traceId'],
             ));
         }
+
+        if (($params = $this->parametricRequestManager->validateParams($this->getAsianaParams())) === TRUE) {
+//            dump($form->getValues());
+
+//            die(dump($params));
+
+            return $form;
+
+
+            /** @var Container $searchAirLeg */
+            $searchAirLeg = $form['searchAirLeg'];
+
+//            dump($searchAirLeg);
+
+
+            foreach ($searchAirLeg->getContainers() as $airLeg) {
+
+                /** @var Container $searchOrigin */
+                $searchOrigin = $airLeg->getComponent('searchOrigin');
+
+                $searchOrigin->createOne();
+//                dump($airLeg);
+//                dump($searchOrigin);
+                foreach ($searchOrigin->getContainers() as $count => $origin) {
+
+//                    dump($count);
+                    $origin->getComponent('airport-code')->value = $this->getAsianaParams()['dep_0'];
+                }
+            }
+
+            $searchAirLeg->createOne();
+
+
+//            (dump($searchAirLeg));
+//            die();
+
+//            dump($searchAirLeg->getValues());
+//            dump($searchOrigin);
+
+//            dump($this->getAsianaParams());
+//            die(dump($params));
+
+
+            /** @var Container $searchPassenger */
+            $searchPassenger = $form['searchPassenger'];
+
+            $airLeg = $form->addSearchAirLeg->createOne();
+            $airLeg->getComponent('searchOrigin')->createOne();
+            $airLeg->getComponent('searchDestination')->createOne();
+            $airLeg->getComponent('searchDepTime')->createOne();
+
+//            die();
+
+
+
+            for ($count = $this->adtcount; $count > 0; $count--) {
+                $adt = $searchPassenger->createOne();
+                $adt['code']->value = AirClientManager::PASSENGER_TYPE_ADT;
+            }
+            for ($count = $this->infcount; $count > 0; $count--) {
+                $adt = $searchPassenger->createOne();
+                $adt['code']->value = AirClientManager::PASSENGER_TYPE_INF;
+            }
+            for ($count = $this->ycdcount; $count > 0; $count--) {
+                $adt = $searchPassenger->createOne();
+                $adt['code']->value = AirClientManager::PASSENGER_TYPE_SRC;
+            }
+            for ($count = $this->ythcount; $count > 0; $count--) {
+                $adt = $searchPassenger->createOne();
+                $adt['code']->value = AirClientManager::PASSENGER_TYPE_YTH;
+            }
+            for ($count = $this->chdcount; $count > 0; $count--) {
+                $adt = $searchPassenger->createOne();
+                $adt['code']->value = AirClientManager::PASSENGER_TYPE_CHD;
+            }
+
+
+        } else {
+            /*
+             * Asiana params are invalid
+             */
+
+//            die(dump($params));
+
+//            $form->addSearchAirLeg->createOne();
+//            $q= $form->addPassenger();
+//            $form->addPassenger();
+//            dump($form);
+        }
+
+//            (dump($q));
+
+//            dump($form['searchPassenger']);
+//            die(dump($form));
+
+
+
+
 
         $form->onSuccess[] = callback($this, 'lowFareSearchFormSuccess');
         return $form;

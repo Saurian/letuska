@@ -34,7 +34,7 @@ class SegmentType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $status;
 
@@ -42,7 +42,7 @@ class SegmentType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $passive;
 
@@ -50,14 +50,14 @@ class SegmentType extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $travelOrder;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -65,7 +65,7 @@ class SegmentType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -151,7 +151,7 @@ class SegmentType extends \Nette\Object
 	 */
 	public function setStatus($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->status = $value;
 		}
 		return $this;
@@ -179,7 +179,7 @@ class SegmentType extends \Nette\Object
 	 */
 	public function setPassive($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->passive = $value;
 		}
 		return $this;
@@ -208,7 +208,7 @@ class SegmentType extends \Nette\Object
 	 */
 	public function setTravelOrder($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelOrder = $value;
 		}
 		return $this;
@@ -239,7 +239,7 @@ class SegmentType extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -269,7 +269,7 @@ class SegmentType extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

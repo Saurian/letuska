@@ -25,7 +25,7 @@ class BundledService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $carrierSubCode;
 
@@ -33,7 +33,7 @@ class BundledService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $serviceType;
 
@@ -41,7 +41,7 @@ class BundledService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $serviceSubCode;
 
@@ -49,7 +49,7 @@ class BundledService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $name;
 
@@ -79,7 +79,7 @@ class BundledService extends \Nette\Object
 	 */
 	public function setCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrier = $value;
 		}
 		return $this;
@@ -108,7 +108,7 @@ class BundledService extends \Nette\Object
 	 */
 	public function setCarrierSubCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrierSubCode = $value;
 		}
 		return $this;
@@ -137,7 +137,7 @@ class BundledService extends \Nette\Object
 	 */
 	public function setServiceType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->serviceType = $value;
 		}
 		return $this;
@@ -166,7 +166,7 @@ class BundledService extends \Nette\Object
 	 */
 	public function setServiceSubCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->serviceSubCode = $value;
 		}
 		return $this;
@@ -195,7 +195,7 @@ class BundledService extends \Nette\Object
 	 */
 	public function setName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->name = $value;
 		}
 		return $this;
@@ -224,7 +224,7 @@ class BundledService extends \Nette\Object
 	 */
 	public function setBooking($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->booking = $value;
 		}
 		return $this;
@@ -253,7 +253,7 @@ class BundledService extends \Nette\Object
 	 */
 	public function setOccurrence($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->occurrence = $value;
 		}
 		return $this;

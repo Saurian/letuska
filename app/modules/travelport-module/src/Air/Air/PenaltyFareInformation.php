@@ -21,7 +21,7 @@ class PenaltyFareInformation extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitPenaltyFares;
 

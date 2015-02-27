@@ -44,14 +44,14 @@ class FlightDetails extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $origin;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $destination;
 
@@ -59,7 +59,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $departureTime;
 
@@ -67,7 +67,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $arrivalTime;
 
@@ -75,7 +75,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $flightTime;
 
@@ -83,7 +83,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $travelTime;
 
@@ -91,7 +91,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $distance;
 
@@ -106,7 +106,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $onTimePerformance;
 
@@ -114,7 +114,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $originTerminal;
 
@@ -122,14 +122,14 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $destinationTerminal;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -137,7 +137,7 @@ class FlightDetails extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -346,7 +346,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setDepartureTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->departureTime = $value;
 		}
 		return $this;
@@ -376,7 +376,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setArrivalTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->arrivalTime = $value;
 		}
 		return $this;
@@ -406,7 +406,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setFlightTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->flightTime = $value;
 		}
 		return $this;
@@ -435,7 +435,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setTravelTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelTime = $value;
 		}
 		return $this;
@@ -464,7 +464,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setDistance($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->distance = $value;
 		}
 		return $this;
@@ -492,7 +492,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setEquipment($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->equipment = $value;
 		}
 		return $this;
@@ -521,7 +521,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setOnTimePerformance($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->onTimePerformance = $value;
 		}
 		return $this;
@@ -550,7 +550,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setOriginTerminal($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->originTerminal = $value;
 		}
 		return $this;
@@ -577,7 +577,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setDestinationTerminal($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destinationTerminal = $value;
 		}
 		return $this;
@@ -606,7 +606,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -636,7 +636,7 @@ class FlightDetails extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

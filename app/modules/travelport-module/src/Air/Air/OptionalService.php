@@ -105,14 +105,14 @@ class OptionalService extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeSupplierCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $supplierCode;
 
@@ -134,7 +134,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $confirmation;
 
@@ -142,7 +142,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $secondaryType;
 
@@ -157,7 +157,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $priority;
 
@@ -165,7 +165,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $available;
 
@@ -173,7 +173,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $entitled;
 
@@ -181,7 +181,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $perTraveler;
 
@@ -204,7 +204,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $serviceStatus;
 
@@ -212,7 +212,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $quantity;
 
@@ -220,7 +220,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $sequenceNumber;
 
@@ -255,70 +255,70 @@ class OptionalService extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $totalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $basePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateTotalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateBasePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $equivalentBasePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $taxes;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $fees;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $services;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateTaxes;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateFees;
 
@@ -340,7 +340,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $mileage;
 
@@ -355,7 +355,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $private;
 
@@ -370,14 +370,14 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $isPricingApproximate;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -385,7 +385,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -393,7 +393,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $chargeable;
 
@@ -401,7 +401,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $inclusiveOfTax;
 
@@ -409,7 +409,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $interlineSettlementAllowed;
 
@@ -417,7 +417,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $geographySpecification;
 
@@ -425,7 +425,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $excessWeightRate;
 
@@ -433,7 +433,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $source;
 
@@ -441,7 +441,7 @@ class OptionalService extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $viewableOnly;
 
@@ -901,7 +901,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -928,7 +928,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setSupplierCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierCode = $value;
 		}
 		return $this;
@@ -957,7 +957,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setOptionalServicesRuleRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->optionalServicesRuleRef = $value;
 		}
 		return $this;
@@ -1017,7 +1017,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setConfirmation($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->confirmation = $value;
 		}
 		return $this;
@@ -1048,7 +1048,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setSecondaryType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->secondaryType = $value;
 		}
 		return $this;
@@ -1080,7 +1080,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setPurchaseWindow($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->purchaseWindow = $value;
 		}
 		return $this;
@@ -1112,7 +1112,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setPriority($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->priority = $value;
 		}
 		return $this;
@@ -1143,7 +1143,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setAvailable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->available = $value;
 		}
 		return $this;
@@ -1174,7 +1174,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setEntitled($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->entitled = $value;
 		}
 		return $this;
@@ -1205,7 +1205,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setPerTraveler($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->perTraveler = $value;
 		}
 		return $this;
@@ -1236,7 +1236,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setCreateDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->createDate = $value;
 		}
 		return $this;
@@ -1267,7 +1267,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setPaymentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->paymentRef = $value;
 		}
 		return $this;
@@ -1298,7 +1298,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setServiceStatus($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->serviceStatus = $value;
 		}
 		return $this;
@@ -1330,7 +1330,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setQuantity($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->quantity = $value;
 		}
 		return $this;
@@ -1362,7 +1362,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setSequenceNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->sequenceNumber = $value;
 		}
 		return $this;
@@ -1393,7 +1393,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setServiceSubCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->serviceSubCode = $value;
 		}
 		return $this;
@@ -1424,7 +1424,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setSSRCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->sSRCode = $value;
 		}
 		return $this;
@@ -1455,7 +1455,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setIssuanceReason($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->issuanceReason = $value;
 		}
 		return $this;
@@ -1485,7 +1485,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setProviderDefinedType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerDefinedType = $value;
 		}
 		return $this;
@@ -1514,7 +1514,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->totalPrice = $value;
 		}
 		return $this;
@@ -1543,7 +1543,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->basePrice = $value;
 		}
 		return $this;
@@ -1572,7 +1572,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setApproximateTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTotalPrice = $value;
 		}
 		return $this;
@@ -1601,7 +1601,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setApproximateBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateBasePrice = $value;
 		}
 		return $this;
@@ -1630,7 +1630,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setEquivalentBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->equivalentBasePrice = $value;
 		}
 		return $this;
@@ -1660,7 +1660,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxes = $value;
 		}
 		return $this;
@@ -1691,7 +1691,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fees = $value;
 		}
 		return $this;
@@ -1721,7 +1721,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setServices($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->services = $value;
 		}
 		return $this;
@@ -1750,7 +1750,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setApproximateTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTaxes = $value;
 		}
 		return $this;
@@ -1779,7 +1779,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setApproximateFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateFees = $value;
 		}
 		return $this;
@@ -1807,7 +1807,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -1835,7 +1835,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setAssessIndicator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->assessIndicator = $value;
 		}
 		return $this;
@@ -1864,7 +1864,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setMileage($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->mileage = $value;
 		}
 		return $this;
@@ -1893,7 +1893,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setApplicableFFLevel($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->applicableFFLevel = $value;
 		}
 		return $this;
@@ -1922,7 +1922,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setPrivate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->private = $value;
 		}
 		return $this;
@@ -1951,7 +1951,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setSSRFreeText($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->sSRFreeText = $value;
 		}
 		return $this;
@@ -1980,7 +1980,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setIsPricingApproximate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->isPricingApproximate = $value;
 		}
 		return $this;
@@ -2010,7 +2010,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -2040,7 +2040,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;
@@ -2069,7 +2069,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setChargeable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->chargeable = $value;
 		}
 		return $this;
@@ -2098,7 +2098,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setInclusiveOfTax($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->inclusiveOfTax = $value;
 		}
 		return $this;
@@ -2127,7 +2127,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setInterlineSettlementAllowed($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->interlineSettlementAllowed = $value;
 		}
 		return $this;
@@ -2156,7 +2156,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setGeographySpecification($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->geographySpecification = $value;
 		}
 		return $this;
@@ -2185,7 +2185,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setExcessWeightRate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->excessWeightRate = $value;
 		}
 		return $this;
@@ -2214,7 +2214,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setSource($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->source = $value;
 		}
 		return $this;
@@ -2244,7 +2244,7 @@ class OptionalService extends \Nette\Object
 	 */
 	public function setViewableOnly($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->viewableOnly = $value;
 		}
 		return $this;

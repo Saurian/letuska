@@ -19,7 +19,7 @@ class TypeWeightType extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $value;
 
@@ -40,7 +40,7 @@ class TypeWeightType extends \Nette\Object
 	 */
 	public function setValue($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->value = $value;
 		}
 		return $this;
@@ -67,7 +67,7 @@ class TypeWeightType extends \Nette\Object
 	 */
 	public function setUnit($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->unit = $value;
 		}
 		return $this;

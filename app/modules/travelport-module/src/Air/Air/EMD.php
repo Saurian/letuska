@@ -32,7 +32,7 @@ class EMD extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $fulfillmentTypeDescription;
 
@@ -40,7 +40,7 @@ class EMD extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $associatedItem;
 
@@ -104,7 +104,7 @@ class EMD extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $reusable;
 
@@ -120,7 +120,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setFulfillmentType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fulfillmentType = $value;
 		}
 		return $this;
@@ -150,7 +150,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setFulfillmentTypeDescription($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fulfillmentTypeDescription = $value;
 		}
 		return $this;
@@ -181,7 +181,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setAssociatedItem($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->associatedItem = $value;
 		}
 		return $this;
@@ -224,7 +224,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setAvailabilityChargeIndicator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->availabilityChargeIndicator = $value;
 		}
 		return $this;
@@ -266,7 +266,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setRefundReissueIndicator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->refundReissueIndicator = $value;
 		}
 		return $this;
@@ -297,7 +297,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setCommissionable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->commissionable = $value;
 		}
 		return $this;
@@ -328,7 +328,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setMileageIndicator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->mileageIndicator = $value;
 		}
 		return $this;
@@ -358,7 +358,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setLocation($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->location = $value;
 		}
 		return $this;
@@ -387,7 +387,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->date = $value;
 		}
 		return $this;
@@ -416,7 +416,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setBooking($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->booking = $value;
 		}
 		return $this;
@@ -445,7 +445,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setDisplayCategory($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->displayCategory = $value;
 		}
 		return $this;
@@ -474,7 +474,7 @@ class EMD extends \Nette\Object
 	 */
 	public function setReusable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->reusable = $value;
 		}
 		return $this;

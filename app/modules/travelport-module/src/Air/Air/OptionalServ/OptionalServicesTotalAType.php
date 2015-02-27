@@ -31,70 +31,70 @@ class OptionalServicesTotalAType extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $totalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $basePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateTotalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateBasePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $equivalentBasePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $taxes;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $fees;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $services;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateTaxes;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateFees;
 
@@ -201,7 +201,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->totalPrice = $value;
 		}
 		return $this;
@@ -230,7 +230,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->basePrice = $value;
 		}
 		return $this;
@@ -259,7 +259,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setApproximateTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTotalPrice = $value;
 		}
 		return $this;
@@ -288,7 +288,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setApproximateBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateBasePrice = $value;
 		}
 		return $this;
@@ -317,7 +317,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setEquivalentBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->equivalentBasePrice = $value;
 		}
 		return $this;
@@ -347,7 +347,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxes = $value;
 		}
 		return $this;
@@ -378,7 +378,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fees = $value;
 		}
 		return $this;
@@ -408,7 +408,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setServices($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->services = $value;
 		}
 		return $this;
@@ -437,7 +437,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setApproximateTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTaxes = $value;
 		}
 		return $this;
@@ -466,7 +466,7 @@ class OptionalServicesTotalAType extends \Nette\Object
 	 */
 	public function setApproximateFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateFees = $value;
 		}
 		return $this;

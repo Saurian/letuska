@@ -297,7 +297,7 @@ class BaseLowFareSearchReqType extends BaseAirSearchReqType
 	 */
 	public function setEnablePointToPointSearch($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->enablePointToPointSearch = $value;
 		}
 		return $this;
@@ -326,7 +326,7 @@ class BaseLowFareSearchReqType extends BaseAirSearchReqType
 	 */
 	public function setEnablePointToPointAlternates($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->enablePointToPointAlternates = $value;
 		}
 		return $this;
@@ -355,7 +355,7 @@ class BaseLowFareSearchReqType extends BaseAirSearchReqType
 	 */
 	public function setMaxNumberOfExpertSolutions($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->maxNumberOfExpertSolutions = $value;
 		}
 		return $this;
@@ -384,7 +384,7 @@ class BaseLowFareSearchReqType extends BaseAirSearchReqType
 	 */
 	public function setSolutionResult($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->solutionResult = $value;
 		}
 		return $this;
@@ -413,7 +413,7 @@ class BaseLowFareSearchReqType extends BaseAirSearchReqType
 	 */
 	public function setPreferCompleteItinerary($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->preferCompleteItinerary = $value;
 		}
 		return $this;
@@ -442,7 +442,7 @@ class BaseLowFareSearchReqType extends BaseAirSearchReqType
 	 */
 	public function setMetaOptionIdentifier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->metaOptionIdentifier = $value;
 		}
 		return $this;

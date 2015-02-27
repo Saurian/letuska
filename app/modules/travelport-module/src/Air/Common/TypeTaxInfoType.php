@@ -34,7 +34,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $category;
 
@@ -42,7 +42,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $carrierDefinedCategory;
 
@@ -70,7 +70,7 @@ class TypeTaxInfoType extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -92,7 +92,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $countryCode;
 
@@ -107,21 +107,21 @@ class TypeTaxInfoType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $taxExempted;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeSupplierCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $supplierCode;
 
@@ -182,7 +182,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -242,7 +242,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setCarrierDefinedCategory($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrierDefinedCategory = $value;
 		}
 		return $this;
@@ -274,7 +274,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setSegmentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->segmentRef = $value;
 		}
 		return $this;
@@ -305,7 +305,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setFlightDetailsRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->flightDetailsRef = $value;
 		}
 		return $this;
@@ -336,7 +336,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setCouponRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->couponRef = $value;
 		}
 		return $this;
@@ -390,7 +390,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setOriginAirport($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->originAirport = $value;
 		}
 		return $this;
@@ -417,7 +417,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setDestinationAirport($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destinationAirport = $value;
 		}
 		return $this;
@@ -444,7 +444,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setCountryCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->countryCode = $value;
 		}
 		return $this;
@@ -471,7 +471,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setFareInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareInfoRef = $value;
 		}
 		return $this;
@@ -500,7 +500,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setTaxExempted($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxExempted = $value;
 		}
 		return $this;
@@ -530,7 +530,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -559,7 +559,7 @@ class TypeTaxInfoType extends \Nette\Object
 	 */
 	public function setSupplierCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierCode = $value;
 		}
 		return $this;

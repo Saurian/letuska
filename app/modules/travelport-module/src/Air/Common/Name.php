@@ -70,7 +70,7 @@ class Name extends \Nette\Object
 	 */
 	public function setPrefix($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prefix = $value;
 		}
 		return $this;
@@ -126,7 +126,7 @@ class Name extends \Nette\Object
 	 */
 	public function setMiddle($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->middle = $value;
 		}
 		return $this;
@@ -182,7 +182,7 @@ class Name extends \Nette\Object
 	 */
 	public function setSuffix($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->suffix = $value;
 		}
 		return $this;
@@ -211,7 +211,7 @@ class Name extends \Nette\Object
 	 */
 	public function setTravelerProfileId($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelerProfileId = $value;
 		}
 		return $this;

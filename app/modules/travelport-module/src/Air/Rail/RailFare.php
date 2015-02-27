@@ -502,7 +502,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setFareBasis($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareBasis = $value;
 		}
 		return $this;
@@ -585,7 +585,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setOrigin($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->origin = $value;
 		}
 		return $this;
@@ -614,7 +614,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setDestination($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destination = $value;
 		}
 		return $this;
@@ -669,7 +669,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->amount = $value;
 		}
 		return $this;
@@ -697,7 +697,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setRouteDescription($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->routeDescription = $value;
 		}
 		return $this;
@@ -726,7 +726,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setTicketTypeCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->ticketTypeCode = $value;
 		}
 		return $this;
@@ -755,7 +755,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setFareReference($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareReference = $value;
 		}
 		return $this;
@@ -784,7 +784,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setCrossCityFare($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->crossCityFare = $value;
 		}
 		return $this;
@@ -813,7 +813,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setOriginStationName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->originStationName = $value;
 		}
 		return $this;
@@ -842,7 +842,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setDestinationStationName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destinationStationName = $value;
 		}
 		return $this;
@@ -871,7 +871,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setReservationRequired($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->reservationRequired = $value;
 		}
 		return $this;
@@ -900,7 +900,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setJourneyDirection($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->journeyDirection = $value;
 		}
 		return $this;
@@ -929,7 +929,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setRailLocOrigin($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railLocOrigin = $value;
 		}
 		return $this;
@@ -958,7 +958,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setRailLocDestination($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railLocDestination = $value;
 		}
 		return $this;
@@ -988,7 +988,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -1018,7 +1018,7 @@ class RailFare extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;

@@ -447,7 +447,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setDistanceType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->distanceType = $value;
 		}
 		return $this;
@@ -474,7 +474,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setIncludeFlightDetails($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->includeFlightDetails = $value;
 		}
 		return $this;
@@ -501,7 +501,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setAllowChangeOfAirport($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->allowChangeOfAirport = $value;
 		}
 		return $this;
@@ -531,7 +531,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setProhibitOvernightLayovers($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitOvernightLayovers = $value;
 		}
 		return $this;
@@ -563,7 +563,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setMaxSolutions($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->maxSolutions = $value;
 		}
 		return $this;
@@ -594,7 +594,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setMaxConnectionTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->maxConnectionTime = $value;
 		}
 		return $this;
@@ -625,7 +625,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setSearchWeekends($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->searchWeekends = $value;
 		}
 		return $this;
@@ -659,7 +659,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setIncludeExtraSolutions($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->includeExtraSolutions = $value;
 		}
 		return $this;
@@ -692,7 +692,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setProhibitMultiAirportConnection($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitMultiAirportConnection = $value;
 		}
 		return $this;
@@ -723,7 +723,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setPreferNonStop($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->preferNonStop = $value;
 		}
 		return $this;
@@ -754,7 +754,7 @@ class AirSearchModifiers extends \Nette\Object
 	 */
 	public function setOrderBy($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->orderBy = $value;
 		}
 		return $this;

@@ -52,7 +52,7 @@ class TypePassengerType extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $age;
 
@@ -75,7 +75,7 @@ class TypePassengerType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $pricePTCOnly;
 
@@ -83,7 +83,7 @@ class TypePassengerType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $bookingTravelerRef;
 
@@ -91,7 +91,7 @@ class TypePassengerType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $accompaniedPassenger;
 
@@ -287,7 +287,7 @@ class TypePassengerType extends \Nette\Object
 	 */
 	public function setAge($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->age = $value;
 		}
 		return $this;
@@ -315,7 +315,7 @@ class TypePassengerType extends \Nette\Object
 	 */
 	public function setDOB($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->dOB = $value;
 		}
 		return $this;
@@ -344,7 +344,7 @@ class TypePassengerType extends \Nette\Object
 	 */
 	public function setGender($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->gender = $value;
 		}
 		return $this;
@@ -372,7 +372,7 @@ class TypePassengerType extends \Nette\Object
 	 */
 	public function setPricePTCOnly($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->pricePTCOnly = $value;
 		}
 		return $this;
@@ -400,7 +400,7 @@ class TypePassengerType extends \Nette\Object
 	 */
 	public function setBookingTravelerRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bookingTravelerRef = $value;
 		}
 		return $this;
@@ -429,7 +429,7 @@ class TypePassengerType extends \Nette\Object
 	 */
 	public function setAccompaniedPassenger($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->accompaniedPassenger = $value;
 		}
 		return $this;
@@ -458,7 +458,7 @@ class TypePassengerType extends \Nette\Object
 	 */
 	public function setResidencyType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->residencyType = $value;
 		}
 		return $this;

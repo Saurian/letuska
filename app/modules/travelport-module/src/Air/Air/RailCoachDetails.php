@@ -15,7 +15,7 @@ class RailCoachDetails extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $railCoachNumber;
 
@@ -23,7 +23,7 @@ class RailCoachDetails extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $availableRailSeats;
 
@@ -31,7 +31,7 @@ class RailCoachDetails extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $railSeatMapAvailability;
 
@@ -46,7 +46,7 @@ class RailCoachDetails extends \Nette\Object
 	 */
 	public function setRailCoachNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railCoachNumber = $value;
 		}
 		return $this;
@@ -75,7 +75,7 @@ class RailCoachDetails extends \Nette\Object
 	 */
 	public function setAvailableRailSeats($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->availableRailSeats = $value;
 		}
 		return $this;
@@ -104,7 +104,7 @@ class RailCoachDetails extends \Nette\Object
 	 */
 	public function setRailSeatMapAvailability($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railSeatMapAvailability = $value;
 		}
 		return $this;

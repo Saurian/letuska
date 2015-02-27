@@ -162,84 +162,84 @@ class AirPricingInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $totalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $basePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateTotalPrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateBasePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $equivalentBasePrice;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $taxes;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $fees;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $services;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateTaxes;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $approximateFees;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeSupplierCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $supplierCode;
 
@@ -254,21 +254,21 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $includesVAT;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $exchangeAmount;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $forfeitAmount;
 
@@ -276,7 +276,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $refundable;
 
@@ -284,7 +284,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $exchangeable;
 
@@ -292,7 +292,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $latestTicketingTime;
 
@@ -307,7 +307,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $checksum;
 
@@ -343,7 +343,7 @@ class AirPricingInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $totalNetPrice;
 
@@ -351,7 +351,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $ticketed;
 
@@ -366,14 +366,14 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $trueLastDateToTicket;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -381,7 +381,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -389,7 +389,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $inPolicy;
 
@@ -404,7 +404,7 @@ class AirPricingInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $preferredOption;
 
@@ -1199,7 +1199,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setCommandKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->commandKey = $value;
 		}
 		return $this;
@@ -1230,7 +1230,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->totalPrice = $value;
 		}
 		return $this;
@@ -1259,7 +1259,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->basePrice = $value;
 		}
 		return $this;
@@ -1288,7 +1288,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setApproximateTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTotalPrice = $value;
 		}
 		return $this;
@@ -1317,7 +1317,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setApproximateBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateBasePrice = $value;
 		}
 		return $this;
@@ -1346,7 +1346,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setEquivalentBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->equivalentBasePrice = $value;
 		}
 		return $this;
@@ -1376,7 +1376,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxes = $value;
 		}
 		return $this;
@@ -1407,7 +1407,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fees = $value;
 		}
 		return $this;
@@ -1437,7 +1437,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setServices($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->services = $value;
 		}
 		return $this;
@@ -1466,7 +1466,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setApproximateTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTaxes = $value;
 		}
 		return $this;
@@ -1495,7 +1495,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setApproximateFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateFees = $value;
 		}
 		return $this;
@@ -1523,7 +1523,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -1550,7 +1550,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setSupplierCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierCode = $value;
 		}
 		return $this;
@@ -1578,7 +1578,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setAmountType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->amountType = $value;
 		}
 		return $this;
@@ -1608,7 +1608,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setIncludesVAT($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->includesVAT = $value;
 		}
 		return $this;
@@ -1639,7 +1639,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setExchangeAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->exchangeAmount = $value;
 		}
 		return $this;
@@ -1670,7 +1670,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setForfeitAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->forfeitAmount = $value;
 		}
 		return $this;
@@ -1700,7 +1700,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setRefundable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->refundable = $value;
 		}
 		return $this;
@@ -1730,7 +1730,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setExchangeable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->exchangeable = $value;
 		}
 		return $this;
@@ -1761,7 +1761,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setLatestTicketingTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->latestTicketingTime = $value;
 		}
 		return $this;
@@ -1817,7 +1817,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setChecksum($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->checksum = $value;
 		}
 		return $this;
@@ -1847,7 +1847,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setETicketability($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->eTicketability = $value;
 		}
 		return $this;
@@ -1876,7 +1876,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setPlatingCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->platingCarrier = $value;
 		}
 		return $this;
@@ -1905,7 +1905,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setProviderReservationInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerReservationInfoRef = $value;
 		}
 		return $this;
@@ -1936,7 +1936,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setAirPricingInfoGroup($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->airPricingInfoGroup = $value;
 		}
 		return $this;
@@ -1967,7 +1967,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setTotalNetPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->totalNetPrice = $value;
 		}
 		return $this;
@@ -1997,7 +1997,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setTicketed($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->ticketed = $value;
 		}
 		return $this;
@@ -2028,7 +2028,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setPricingType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->pricingType = $value;
 		}
 		return $this;
@@ -2059,7 +2059,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setTrueLastDateToTicket($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->trueLastDateToTicket = $value;
 		}
 		return $this;
@@ -2090,7 +2090,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -2120,7 +2120,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;
@@ -2149,7 +2149,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setInPolicy($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->inPolicy = $value;
 		}
 		return $this;
@@ -2178,7 +2178,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setPolicyCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->policyCode = $value;
 		}
 		return $this;
@@ -2208,7 +2208,7 @@ class AirPricingInfo extends \Nette\Object
 	 */
 	public function setPreferredOption($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->preferredOption = $value;
 		}
 		return $this;

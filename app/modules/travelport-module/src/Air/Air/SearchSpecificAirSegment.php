@@ -216,7 +216,7 @@ class SearchSpecificAirSegment extends \Nette\Object
 	 */
 	public function setSegmentIndex($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->segmentIndex = $value;
 		}
 		return $this;

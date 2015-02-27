@@ -36,7 +36,7 @@ class ServiceData extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $data;
 
@@ -58,7 +58,7 @@ class ServiceData extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $stopOver;
 
@@ -192,7 +192,7 @@ class ServiceData extends \Nette\Object
 	 */
 	public function setData($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->data = $value;
 		}
 		return $this;
@@ -222,7 +222,7 @@ class ServiceData extends \Nette\Object
 	 */
 	public function setAirSegmentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->airSegmentRef = $value;
 		}
 		return $this;
@@ -253,7 +253,7 @@ class ServiceData extends \Nette\Object
 	 */
 	public function setBookingTravelerRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bookingTravelerRef = $value;
 		}
 		return $this;
@@ -284,7 +284,7 @@ class ServiceData extends \Nette\Object
 	 */
 	public function setStopOver($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->stopOver = $value;
 		}
 		return $this;
@@ -314,7 +314,7 @@ class ServiceData extends \Nette\Object
 	 */
 	public function setTravelerType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelerType = $value;
 		}
 		return $this;
@@ -343,7 +343,7 @@ class ServiceData extends \Nette\Object
 	 */
 	public function setEMDSummaryRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->eMDSummaryRef = $value;
 		}
 		return $this;
@@ -372,7 +372,7 @@ class ServiceData extends \Nette\Object
 	 */
 	public function setEMDCouponRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->eMDCouponRef = $value;
 		}
 		return $this;

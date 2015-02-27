@@ -27,7 +27,7 @@ class TypeUnitOfMeasureType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $unit;
 
@@ -41,7 +41,7 @@ class TypeUnitOfMeasureType extends \Nette\Object
 	 */
 	public function setValue($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->value = $value;
 		}
 		return $this;
@@ -69,7 +69,7 @@ class TypeUnitOfMeasureType extends \Nette\Object
 	 */
 	public function setUnit($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->unit = $value;
 		}
 		return $this;

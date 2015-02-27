@@ -181,7 +181,7 @@ class LegDetail extends \Nette\Object
 	 */
 	public function setTravelDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelDate = $value;
 		}
 		return $this;
@@ -211,7 +211,7 @@ class LegDetail extends \Nette\Object
 	 */
 	public function setFlightNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->flightNumber = $value;
 		}
 		return $this;

@@ -17,7 +17,7 @@ class BillingPointOfSaleInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $originApplication;
 
@@ -66,7 +66,7 @@ class BillingPointOfSaleInfo extends \Nette\Object
 	 */
 	public function setCIDBNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->cIDBNumber = $value;
 		}
 		return $this;

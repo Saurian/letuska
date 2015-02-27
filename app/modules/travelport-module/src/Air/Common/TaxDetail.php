@@ -14,7 +14,7 @@ class TaxDetail extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -36,7 +36,7 @@ class TaxDetail extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $countryCode;
 
@@ -82,7 +82,7 @@ class TaxDetail extends \Nette\Object
 	 */
 	public function setOriginAirport($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->originAirport = $value;
 		}
 		return $this;
@@ -109,7 +109,7 @@ class TaxDetail extends \Nette\Object
 	 */
 	public function setDestinationAirport($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destinationAirport = $value;
 		}
 		return $this;
@@ -136,7 +136,7 @@ class TaxDetail extends \Nette\Object
 	 */
 	public function setCountryCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->countryCode = $value;
 		}
 		return $this;
@@ -163,7 +163,7 @@ class TaxDetail extends \Nette\Object
 	 */
 	public function setFareInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareInfoRef = $value;
 		}
 		return $this;

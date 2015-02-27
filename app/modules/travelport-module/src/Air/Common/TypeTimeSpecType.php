@@ -92,7 +92,7 @@ class TypeTimeSpecType extends \Nette\Object
 	 */
 	public function setPreferredTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->preferredTime = $value;
 		}
 		return $this;

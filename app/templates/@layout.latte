@@ -4,7 +4,7 @@
  *}
 
 <!DOCTYPE html>
-<html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" data-ng-app="symphony.letuska">
 <head>
 	<meta charset="utf-8">
 
@@ -14,6 +14,7 @@
 	{*<link href="{$basePath}/css/bootstrap.min.css" rel="stylesheet">*}
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	{*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">*}
+	{*<link href="http://hp:LetuskaFTW2014@dev.hp.letuska.cz/symphony.min.css" rel="stylesheet" type="text/css" media="screen,projection">*}
 	<link href="{$basePath}/css/offcanvas.css" rel="stylesheet">
 	<link href="{$basePath}/css/print.css" rel="stylesheet" media="print">
 	<link href="{$basePath}/favicon.ico" rel="shortcut icon">
@@ -33,10 +34,14 @@
 	<div class="container-fluid">
 		<div class="row row-offcanvas row-offcanvas-right">
 			<div class="col-xs-12 col-sm-3">
-				<a n:href="default pricer_pref => 'MUP', dep_0=>'PRG', arr_0=>'BTS', full_date_0=>'2015-02-20'">Praha -> Bratislava</a><br>
-				<a n:href="default pricer_pref => 'MUP', dep_0=>'BTS', arr_0=>'SYD', full_date_0=>'2015-02-24'">Bratislava -> Sydney</a><br>
+				<a n:href="default pricer_pref => 'MUP', journey_type => 'OW', dep_0=>'PRG', arr_0=>'BTS', dep_1=>'', arr_1=>'', dep_2=>'', arr_2=>'', adtcount => 1, infcount=>0, chdcount=>0, ythcount=>0, ycdcount=>0, full_date_0=>'11-03-2015', full_date_1=>'', full_date_2=>''">Praha -> Bratislava (tam)</a><br>
+				<a n:href="default pricer_pref => 'MUP', journey_type => 'OW', dep_0=>'PRG', arr_0=>'ATL', dep_1=>'', arr_1=>'', dep_2=>'', arr_2=>'', adtcount => 1, infcount=>0, chdcount=>0, ythcount=>0, ycdcount=>0, full_date_0=>'10-03-2015', full_date_1=>'', full_date_2=>''">Praha -> Atlanta (tam)</a><br>
+				<a n:href="default pricer_pref => 'MUP', journey_type => 'RT', dep_0=>'PRG', arr_0=>'ATL', dep_1=>'', arr_1=>'', dep_2=>'', arr_2=>'', adtcount => 1, infcount=>0, chdcount=>0, ythcount=>0, ycdcount=>0, full_date_0=>'10-03-2015', full_date_1=>'11-03-2015', full_date_2=>''">Praha -> Atlanta (zpáteční)</a><br>
+				<a n:href="default pricer_pref => 'MUP', journey_type => 'RT', dep_0=>'CDG', arr_0=>'LGW', dep_1=>'', arr_1=>'', dep_2=>'', arr_2=>'', adtcount => 1, infcount=>0, chdcount=>0, ythcount=>0, ycdcount=>0, full_date_0=>'10-03-2015', full_date_1=>'11-03-2015', full_date_2=>''">Paříž -> Londýn (zpáteční)</a><br>
+				{*<a n:href="default pricer_pref => 'MUP', journey_type => 'MS', dep_0=>'CDG', arr_0=>'LGW', dep_1=>'LGW', arr_1=>'LGA', dep_2=>'', arr_2=>'', adtcount => 1, infcount=>0, chdcount=>0, ythcount=>0, ycdcount=>0, full_date_0=>'10-03-2015', full_date_1=>'11-03-2015', full_date_2=>''">Paříž -> Londýn, Londýn -> New York </a><br>*}
+				{*<a n:href="default pricer_pref => 'MUP', journey_type => 'MS', dep_0=>'CDG', arr_0=>'LGW', dep_1=>'LGW', arr_1=>'PRG', dep_2=>'PRG', arr_2=>'LGA', adtcount => 1, infcount=>0, chdcount=>0, ythcount=>0, ycdcount=>0, full_date_0=>'10-03-2015', full_date_1=>'11-03-2015', full_date_2=>'12-03-2015'">Paříž -> Londýn, Londýn -> Praha , Praha -> New York</a><br>*}
 
-				<div n:snippet="debugResponse">
+				<div n:snippet="debugResponse" n:if="$user->isAllowed('Devrun','view')">
 					{ifset $debugResponse}{!$debugResponse}{/ifset}
 				</div>
 			</div>
@@ -54,15 +59,17 @@
 		<footer class="container">
 			<p>© Company 2015</p>
 		</footer>
+		{*<div data-footer></div>*}
 	</div>
 
 	{block scripts}
 	<script src="{$basePath}/js/jquery.js"></script>
+	{*<script type="text/javascript" src="http://hp:LetuskaFTW2014@dev.hp.letuska.cz/symphony.min.js"></script>*}
+	<script src="{$basePath}/js/bootstrap.min.js"></script>
 	<script src="{$basePath}/js/nette.ajax.js"></script>
 	<script src="{$basePath}/js/extensions/diagnostics.dumps.ajax.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
 	{*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>*}
-	<script src="{$basePath}/js/bootstrap.min.js"></script>
 	<script src="{$basePath}/js/main.js"></script>
 	{/block}
 </body>

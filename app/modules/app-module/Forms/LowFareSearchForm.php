@@ -44,6 +44,15 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
     /** @var LocationManager */
     private $locationManager;
 
+    /** @var Container */
+    public $addSearchAirLeg;
+
+    /** @var Container */
+    public $addSearchPassengers;
+
+    /** @var Container */
+    protected $searchPassenger;
+
 
     public function bootstrap3Render()
     {
@@ -58,7 +67,7 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
         $renderer->wrappers['control']['errorcontainer'] = 'span class=help-block';
 
         // make form and controls compatible with Twitter Bootstrap
-        $this->getElementPrototype()->class('form-horizontal ajax');
+        $this->getElementPrototype()->class('form-horizontal _ajax');
 
         foreach ($this->getControls() as $control) {
             if ($control instanceof Button) {
@@ -93,7 +102,7 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
 
         $this->addContainer('billingPointOfSaleInfo')->addHidden('originApplication', 'uAPI');
 
-        $air = $this->addDynamic('searchAirLeg', function (\Nette\Forms\Container $container) {
+        $this->addSearchAirLeg = $this->addDynamic('searchAirLeg', function (\Nette\Forms\Container $container) {
             /** @var LowFareSearchForm $container */
             $searchOrigin = $container->addDynamic('searchOrigin', function(\Nette\Forms\Container $_searchOrigin) {
                 $_searchOrigin->addContainer('airport')->addSelect('code', 'Source',
@@ -106,14 +115,17 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
             });
 
             $searchDepTime = $container->addDynamic('searchDepTime', function(\Nette\Forms\Container $_searchDepTime) {
-                $_searchDepTime->addText('preferredTime', 'Preferred Time')->setDefaultValue('2015-02-20');
+                $_searchDepTime->addText('preferredTime', 'Preferred Time')->setDefaultValue('2015-02-24');
+//                $searchExtraDays = $_searchDepTime->addContainer('searchExtraDays');
+//                $searchExtraDays->addText('daysBefore', 'DaysBefore')->setDefaultValue(2);
+//                $searchExtraDays->addText('daysAfter', 'DaysAfter')->setDefaultValue(2);
             });
 
 
             /** @var Container $searchOrigin */
-            $searchOrigin->createOne();
-            $destination->createOne();
-            $searchDepTime->createOne();
+//            $searchOrigin->createOne();
+//            $destination->createOne();
+//            $searchDepTime->createOne();
 
         });
 
@@ -127,7 +139,7 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
             $preferredProvider->addHidden('code', '1G');
         });
 
-        $air->createOne();
+//        $this->addSearchAirLeg->createOne();
         $provider->createOne();
 
         $removePassengerEvent = callback($this, 'RemoveADTPassenger');
@@ -145,8 +157,9 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
             ->setValidationScope(FALSE)
             ->onClick[] = callback($this, 'AddADTPassenger');
 
-        $searchPassengers['add']->getControlPrototype()->class = 'ajax btn btn-info';;
-        $searchPassengers->createOne();
+        $searchPassengers['add']->getControlPrototype()->class = 'ajax btn btn-info';
+        $this->searchPassenger = $searchPassengers;
+//        $searchPassengers->createOne();
 
         $this->addSubmit('send', 'vyhledat spoje')->setAttribute('class', 'btn btn-primary');
 
@@ -197,6 +210,11 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
     }
 
 
+    public function addPassenger($name = null)
+    {
+        $this->searchPassenger->createOne($name);
+    }
+
     public function AddADTPassenger(SubmitButton $button)
     {
         /** @var Container $container */
@@ -237,6 +255,10 @@ class LowFareSearchForm extends Form implements ILowFareSearchFormFactory{
                     /** @var Object $request */
                     if ($request = $this->getRequest()) {
                         $this->createRequest($request, $form->getValues());
+
+//                        dump($form->getValues());
+//                        (dump($request));
+//                        die();
                     }
 
                 } catch (NotSupportedException $exc) {

@@ -149,7 +149,7 @@ class LowFareSearchReq extends BaseLowFareSearchReqType
 	 */
 	public function setPolicyReference($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->policyReference = $value;
 		}
 		return $this;

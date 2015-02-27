@@ -17,7 +17,7 @@ class NYield extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -40,7 +40,7 @@ class NYield extends \Nette\Object
 	 */
 	public function setAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->amount = $value;
 		}
 		return $this;
@@ -70,7 +70,7 @@ class NYield extends \Nette\Object
 	 */
 	public function setBookingTravelerRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bookingTravelerRef = $value;
 		}
 		return $this;

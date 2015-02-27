@@ -44,7 +44,7 @@ class WaiverCode extends \Nette\Object
 	 */
 	public function setTourCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->tourCode = $value;
 		}
 		return $this;
@@ -71,7 +71,7 @@ class WaiverCode extends \Nette\Object
 	 */
 	public function setTicketDesignator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->ticketDesignator = $value;
 		}
 		return $this;
@@ -100,7 +100,7 @@ class WaiverCode extends \Nette\Object
 	 */
 	public function setEndorsement($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->endorsement = $value;
 		}
 		return $this;

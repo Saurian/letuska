@@ -15,7 +15,7 @@ class UpsellBrand extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $fareBasis;
 
@@ -23,7 +23,7 @@ class UpsellBrand extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $fareInfoRef;
 
@@ -37,7 +37,7 @@ class UpsellBrand extends \Nette\Object
 	 */
 	public function setFareBasis($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareBasis = $value;
 		}
 		return $this;
@@ -64,7 +64,7 @@ class UpsellBrand extends \Nette\Object
 	 */
 	public function setFareInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareInfoRef = $value;
 		}
 		return $this;

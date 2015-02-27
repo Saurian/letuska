@@ -51,6 +51,14 @@ class TravelPortSoapClient extends SoapClient implements ArrayAccess,Iterator,Co
     const SEND_FROM_CURL = 'send_from_curl';
 
     /**
+     * Cache keys
+     *
+     * @var string
+     */
+    const CACHE_REQUEST = 'request';
+    const CACHE_RESPONSE = 'response';
+
+    /**
      * Option key to define WSDL url
      *
      * @var string
@@ -268,6 +276,13 @@ class TravelPortSoapClient extends SoapClient implements ArrayAccess,Iterator,Co
      * @var array
      */
     private $lastError;
+
+    /**
+     * Contains last request
+     *
+     * @var array
+     */
+    private $lastRequest;
 
     /**
      * Array that contains values when only one parameter is set when calling __construct method
@@ -586,7 +601,15 @@ class TravelPortSoapClient extends SoapClient implements ArrayAccess,Iterator,Co
     {
         if (self::getSoapClient())
             return self::getFormattedXml(self::getSoapClient()->__getLastRequest(), $_asDomDocument);
-        return null;
+
+        $request = null;
+        if ($this->useCache) {
+            if ($data = $this->getCache()->load($this->getCacheId())) {
+                $request = $data['request'];
+            }
+        }
+
+        return $this->lastRequest ? $this->lastRequest : $request;
     }
 
     /**
@@ -610,7 +633,7 @@ class TravelPortSoapClient extends SoapClient implements ArrayAccess,Iterator,Co
         } else {
             $response = $this->__getLastResponse();
         }
-        return self::getFormattedXml($response, $_asDomDocument);
+        return self::getFormattedXml(is_array($response) ? $response['response'] : $response, $_asDomDocument);
     }
 
 
@@ -1294,8 +1317,8 @@ class TravelPortSoapClient extends SoapClient implements ArrayAccess,Iterator,Co
 
     public function __call($function_name, $arguments)
     {
-        dump($function_name);
-        dump($arguments);
+//        dump($function_name);
+//        dump($arguments);
 //
 //        die();
 
@@ -1340,15 +1363,15 @@ class TravelPortSoapClient extends SoapClient implements ArrayAccess,Iterator,Co
     {
         if ($this->useCache) {
 
-            if ($response = $this->getCache()->load($this->getCacheId())) {
-                return $response;
+            if ($data = $this->getCache()->load($this->getCacheId())) {
+                return $data['response'];
             }
         }
 
         if ($this->customGenerate) {
             $this->transformDomToSoap();
-            $request = $this->getDomDocument()->saveXML();
-//             die(dump($request));
+            $request = $this->lastRequest = $this->getDomDocument()->saveXML();
+              //die(dump($request));
         }
 
         if ($this->byCurl) {
@@ -1357,7 +1380,11 @@ class TravelPortSoapClient extends SoapClient implements ArrayAccess,Iterator,Co
         } else {
             $response = parent::__doRequest($request, $location, $action, $version, $one_way);
             if ($this->useCache) {
-                $this->getCache()->save($this->getCacheId(), $response, array(
+                $data = array(
+                    'request'  => $this->getLastRequest(),
+                    'response' => $response,
+                );
+                $this->getCache()->save($this->getCacheId(), $data, array(
                     Cache::EXPIRE => '1 days',
                     Cache::TAGS => array("request/{$this->getCacheId()}", "requests"),
                 ));

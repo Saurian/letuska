@@ -14,7 +14,7 @@ class Rules extends \Nette\Object
 	/**
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $rulesText;
 

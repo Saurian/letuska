@@ -15,7 +15,7 @@ class BookingCodeInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $cabinClass;
 
@@ -23,7 +23,7 @@ class BookingCodeInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $bookingCounts;
 
@@ -40,7 +40,7 @@ class BookingCodeInfo extends \Nette\Object
 	 */
 	public function setCabinClass($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->cabinClass = $value;
 		}
 		return $this;

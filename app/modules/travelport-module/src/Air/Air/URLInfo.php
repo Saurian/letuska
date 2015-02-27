@@ -10,7 +10,6 @@ namespace TravelPortModule\Air;
 
 use TravelPortModule\Common\TypeGeneralTextType;
 use TravelPortModule\XsdTransfer\OutOfRangeException;
-use string;
 
 class URLInfo extends \Nette\Object
 {
@@ -22,7 +21,7 @@ class URLInfo extends \Nette\Object
 	protected $text = array();
 
 	/**
-	 * @var \\string[]
+	 * @var string[] @value
 	 * @xsdns TravelPortModule\Air
 	 */
 	protected $uRL = array();
@@ -80,11 +79,10 @@ class URLInfo extends \Nette\Object
 	 * @param String $uRL
 	 * @return String
 	 */
-	public function addURL(string $uRL = NULL)
+	public function addURL($uRL)
 	{
-		$uRL = $uRL ?: new String();
 		$this->uRL[] = $uRL;
-		return $uRL;
+		return $this;
 	}
 
 

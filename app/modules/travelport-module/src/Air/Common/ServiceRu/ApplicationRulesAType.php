@@ -15,7 +15,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $requiredForAllTravelers;
 
@@ -23,7 +23,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $requiredForAllSegments;
 
@@ -31,7 +31,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $requiredForAllSegmentsInOD;
 
@@ -39,7 +39,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $unselectedOptionRequired;
 
@@ -47,7 +47,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $secondaryOptionCodeRequired;
 
@@ -62,7 +62,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 */
 	public function setRequiredForAllTravelers($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->requiredForAllTravelers = $value;
 		}
 		return $this;
@@ -91,7 +91,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 */
 	public function setRequiredForAllSegments($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->requiredForAllSegments = $value;
 		}
 		return $this;
@@ -121,7 +121,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 */
 	public function setRequiredForAllSegmentsInOD($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->requiredForAllSegmentsInOD = $value;
 		}
 		return $this;
@@ -152,7 +152,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 */
 	public function setUnselectedOptionRequired($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->unselectedOptionRequired = $value;
 		}
 		return $this;
@@ -182,7 +182,7 @@ class ApplicationRulesAType extends \Nette\Object
 	 */
 	public function setSecondaryOptionCodeRequired($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->secondaryOptionCodeRequired = $value;
 		}
 		return $this;

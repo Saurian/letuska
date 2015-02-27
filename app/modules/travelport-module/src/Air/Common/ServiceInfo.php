@@ -9,13 +9,12 @@
 namespace TravelPortModule\Common;
 
 use TravelPortModule\XsdTransfer\OutOfRangeException;
-use string;
 
 class ServiceInfo extends \Nette\Object
 {
 
 	/**
-	 * @var \\string[]
+	 * @var string[] @value
 	 * @xsdns TravelPortModule\Common
 	 */
 	protected $description = array();
@@ -35,11 +34,10 @@ class ServiceInfo extends \Nette\Object
 	 * @param String $description
 	 * @return String
 	 */
-	public function addDescription(string $description = NULL)
+	public function addDescription($description)
 	{
-		$description = $description ?: new String();
 		$this->description[] = $description;
-		return $description;
+		return $this;
 	}
 
 

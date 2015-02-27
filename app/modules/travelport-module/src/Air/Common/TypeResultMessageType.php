@@ -21,7 +21,7 @@ class TypeResultMessageType extends \Nette\Object
 	 * @attribute
 	 * @var integer @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $code;
 
@@ -70,7 +70,7 @@ class TypeResultMessageType extends \Nette\Object
 	 */
 	public function setType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->type = $value;
 		}
 		return $this;

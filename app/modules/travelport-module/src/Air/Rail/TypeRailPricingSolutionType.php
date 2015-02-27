@@ -327,7 +327,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setOfferId($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->offerId = $value;
 		}
 		return $this;
@@ -356,7 +356,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->totalPrice = $value;
 		}
 		return $this;
@@ -385,7 +385,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->basePrice = $value;
 		}
 		return $this;
@@ -414,7 +414,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setApproximateTotalPrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTotalPrice = $value;
 		}
 		return $this;
@@ -443,7 +443,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setApproximateBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateBasePrice = $value;
 		}
 		return $this;
@@ -472,7 +472,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setEquivalentBasePrice($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->equivalentBasePrice = $value;
 		}
 		return $this;
@@ -502,7 +502,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->taxes = $value;
 		}
 		return $this;
@@ -533,7 +533,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fees = $value;
 		}
 		return $this;
@@ -563,7 +563,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setServices($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->services = $value;
 		}
 		return $this;
@@ -592,7 +592,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setApproximateTaxes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateTaxes = $value;
 		}
 		return $this;
@@ -621,7 +621,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setApproximateFees($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->approximateFees = $value;
 		}
 		return $this;
@@ -700,7 +700,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setHostTokenRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->hostTokenRef = $value;
 		}
 		return $this;
@@ -729,7 +729,7 @@ class TypeRailPricingSolutionType extends \Nette\Object
 	 */
 	public function setReference($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->reference = $value;
 		}
 		return $this;

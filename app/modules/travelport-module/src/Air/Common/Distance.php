@@ -46,7 +46,7 @@ class Distance extends \Nette\Object
 	 */
 	public function setUnits($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->units = $value;
 		}
 		return $this;
@@ -99,7 +99,7 @@ class Distance extends \Nette\Object
 	 */
 	public function setDirection($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->direction = $value;
 		}
 		return $this;

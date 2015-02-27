@@ -74,7 +74,7 @@ class FareValidity extends \Nette\Object
 	 */
 	public function setNotValidBefore($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->notValidBefore = $value;
 		}
 		return $this;
@@ -103,7 +103,7 @@ class FareValidity extends \Nette\Object
 	 */
 	public function setNotValidAfter($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->notValidAfter = $value;
 		}
 		return $this;

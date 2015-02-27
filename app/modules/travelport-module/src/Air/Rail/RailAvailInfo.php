@@ -47,7 +47,7 @@ class RailAvailInfo extends \Nette\Object
 	 */
 	public function setClassCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->classCode = $value;
 		}
 		return $this;
@@ -76,7 +76,7 @@ class RailAvailInfo extends \Nette\Object
 	 */
 	public function setQuantity($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->quantity = $value;
 		}
 		return $this;
@@ -105,7 +105,7 @@ class RailAvailInfo extends \Nette\Object
 	 */
 	public function setCabinClass($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->cabinClass = $value;
 		}
 		return $this;

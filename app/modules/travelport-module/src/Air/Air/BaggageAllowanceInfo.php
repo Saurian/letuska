@@ -91,7 +91,7 @@ class BaggageAllowanceInfo extends BaseBaggageAllowanceInfoType
 	 */
 	public function setTravelerType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelerType = $value;
 		}
 		return $this;
@@ -118,7 +118,7 @@ class BaggageAllowanceInfo extends BaseBaggageAllowanceInfoType
 	 */
 	public function setFareInfoRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareInfoRef = $value;
 		}
 		return $this;

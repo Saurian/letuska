@@ -31,14 +31,14 @@ class FlightOption extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $origin;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $destination;
 
@@ -105,7 +105,7 @@ class FlightOption extends \Nette\Object
 	 */
 	public function setLegRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->legRef = $value;
 		}
 		return $this;

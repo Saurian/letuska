@@ -332,7 +332,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setTrainNumber($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->trainNumber = $value;
 		}
 		return $this;
@@ -360,7 +360,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setOrigin($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->origin = $value;
 		}
 		return $this;
@@ -389,7 +389,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setDestination($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destination = $value;
 		}
 		return $this;
@@ -445,7 +445,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setArrivalTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->arrivalTime = $value;
 		}
 		return $this;
@@ -474,7 +474,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setOriginStationName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->originStationName = $value;
 		}
 		return $this;
@@ -503,7 +503,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setDestinationStationName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->destinationStationName = $value;
 		}
 		return $this;
@@ -532,7 +532,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setRailLocOrigin($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railLocOrigin = $value;
 		}
 		return $this;
@@ -561,7 +561,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setRailLocDestination($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->railLocDestination = $value;
 		}
 		return $this;
@@ -590,7 +590,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setTrainType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->trainType = $value;
 		}
 		return $this;
@@ -619,7 +619,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setTrainTypeCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->trainTypeCode = $value;
 		}
 		return $this;
@@ -648,7 +648,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setTransportMode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->transportMode = $value;
 		}
 		return $this;
@@ -677,7 +677,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setSeatAssignable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->seatAssignable = $value;
 		}
 		return $this;
@@ -706,7 +706,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setTransportCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->transportCode = $value;
 		}
 		return $this;
@@ -735,7 +735,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setReservationRequired($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->reservationRequired = $value;
 		}
 		return $this;
@@ -764,7 +764,7 @@ class RailSegment extends SegmentType
 	 */
 	public function setTravelTime($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelTime = $value;
 		}
 		return $this;

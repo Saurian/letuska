@@ -78,7 +78,7 @@ class Brand extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $name;
 
@@ -100,7 +100,7 @@ class Brand extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $brandFound;
 
@@ -108,7 +108,7 @@ class Brand extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $upSellBrandFound;
 
@@ -116,7 +116,7 @@ class Brand extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $brandedDetailsAvailable;
 
@@ -419,7 +419,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -448,7 +448,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setBrandID($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->brandID = $value;
 		}
 		return $this;
@@ -477,7 +477,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setName($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->name = $value;
 		}
 		return $this;
@@ -506,7 +506,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setAirItineraryDetailsRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->airItineraryDetailsRef = $value;
 		}
 		return $this;
@@ -535,7 +535,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setUpSellBrandID($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->upSellBrandID = $value;
 		}
 		return $this;
@@ -564,7 +564,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setBrandFound($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->brandFound = $value;
 		}
 		return $this;
@@ -593,7 +593,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setUpSellBrandFound($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->upSellBrandFound = $value;
 		}
 		return $this;
@@ -622,7 +622,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setBrandedDetailsAvailable($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->brandedDetailsAvailable = $value;
 		}
 		return $this;
@@ -650,7 +650,7 @@ class Brand extends \Nette\Object
 	 */
 	public function setCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carrier = $value;
 		}
 		return $this;

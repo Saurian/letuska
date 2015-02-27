@@ -101,7 +101,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $fareBasis;
 
@@ -115,14 +115,14 @@ class FareInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $origin;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeIATACodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $destination;
 
@@ -130,7 +130,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $effectiveDate;
 
@@ -153,7 +153,7 @@ class FareInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -168,7 +168,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $negotiatedFare;
 
@@ -183,7 +183,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $waiverCode;
 
@@ -221,7 +221,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $promotionalFare;
 
@@ -242,7 +242,7 @@ class FareInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -250,7 +250,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -258,7 +258,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $bulkTicket;
 
@@ -266,7 +266,7 @@ class FareInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $inclusiveTour;
 
@@ -843,7 +843,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setTravelDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->travelDate = $value;
 		}
 		return $this;
@@ -874,7 +874,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setDepartureDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->departureDate = $value;
 		}
 		return $this;
@@ -903,7 +903,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->amount = $value;
 		}
 		return $this;
@@ -930,7 +930,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setPrivateFare($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->privateFare = $value;
 		}
 		return $this;
@@ -959,7 +959,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setNegotiatedFare($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->negotiatedFare = $value;
 		}
 		return $this;
@@ -988,7 +988,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setTourCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->tourCode = $value;
 		}
 		return $this;
@@ -1015,7 +1015,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setWaiverCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->waiverCode = $value;
 		}
 		return $this;
@@ -1043,7 +1043,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setNotValidBefore($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->notValidBefore = $value;
 		}
 		return $this;
@@ -1072,7 +1072,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setNotValidAfter($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->notValidAfter = $value;
 		}
 		return $this;
@@ -1102,7 +1102,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setPseudoCityCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->pseudoCityCode = $value;
 		}
 		return $this;
@@ -1134,7 +1134,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setFareFamily($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->fareFamily = $value;
 		}
 		return $this;
@@ -1165,7 +1165,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setPromotionalFare($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->promotionalFare = $value;
 		}
 		return $this;
@@ -1193,7 +1193,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setCarCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->carCode = $value;
 		}
 		return $this;
@@ -1220,7 +1220,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setValueCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->valueCode = $value;
 		}
 		return $this;
@@ -1249,7 +1249,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -1279,7 +1279,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;
@@ -1309,7 +1309,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setBulkTicket($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bulkTicket = $value;
 		}
 		return $this;
@@ -1341,7 +1341,7 @@ class FareInfo extends \Nette\Object
 	 */
 	public function setInclusiveTour($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->inclusiveTour = $value;
 		}
 		return $this;

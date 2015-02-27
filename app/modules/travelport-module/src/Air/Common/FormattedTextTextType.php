@@ -21,7 +21,7 @@ class FormattedTextTextType extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $formatted;
 
@@ -53,7 +53,7 @@ class FormattedTextTextType extends \Nette\Object
 	 */
 	public function setFormatted($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->formatted = $value;
 		}
 		return $this;
@@ -82,7 +82,7 @@ class FormattedTextTextType extends \Nette\Object
 	 */
 	public function setLanguage($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->language = $value;
 		}
 		return $this;
@@ -111,7 +111,7 @@ class FormattedTextTextType extends \Nette\Object
 	 */
 	public function setTextFormat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->textFormat = $value;
 		}
 		return $this;

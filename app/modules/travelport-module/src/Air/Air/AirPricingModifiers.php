@@ -107,7 +107,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitMinStayFares;
 
@@ -115,7 +115,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitMaxStayFares;
 
@@ -130,7 +130,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitAdvancePurchaseFares;
 
@@ -138,7 +138,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitNonRefundableFares;
 
@@ -146,7 +146,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitRestrictedFares;
 
@@ -189,7 +189,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $accountCodeFaresOnly;
 
@@ -204,7 +204,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitNonExchangeableFares;
 
@@ -212,7 +212,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $forceSegmentSelect;
 
@@ -227,7 +227,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $oneWayShop;
 
@@ -235,7 +235,7 @@ class AirPricingModifiers extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $prohibitUnbundledFareTypes;
 
@@ -620,7 +620,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitMinStayFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitMinStayFares = $value;
 		}
 		return $this;
@@ -647,7 +647,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitMaxStayFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitMaxStayFares = $value;
 		}
 		return $this;
@@ -674,7 +674,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setCurrencyType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->currencyType = $value;
 		}
 		return $this;
@@ -701,7 +701,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitAdvancePurchaseFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitAdvancePurchaseFares = $value;
 		}
 		return $this;
@@ -728,7 +728,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitNonRefundableFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitNonRefundableFares = $value;
 		}
 		return $this;
@@ -755,7 +755,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitRestrictedFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitRestrictedFares = $value;
 		}
 		return $this;
@@ -784,7 +784,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setFaresIndicator($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->faresIndicator = $value;
 		}
 		return $this;
@@ -814,7 +814,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setFiledCurrency($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->filedCurrency = $value;
 		}
 		return $this;
@@ -843,7 +843,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setPlatingCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->platingCarrier = $value;
 		}
 		return $this;
@@ -872,7 +872,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setOverrideCarrier($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->overrideCarrier = $value;
 		}
 		return $this;
@@ -902,7 +902,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setETicketability($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->eTicketability = $value;
 		}
 		return $this;
@@ -934,7 +934,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setAccountCodeFaresOnly($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->accountCodeFaresOnly = $value;
 		}
 		return $this;
@@ -964,7 +964,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setKey($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->key = $value;
 		}
 		return $this;
@@ -991,7 +991,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitNonExchangeableFares($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitNonExchangeableFares = $value;
 		}
 		return $this;
@@ -1019,7 +1019,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setForceSegmentSelect($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->forceSegmentSelect = $value;
 		}
 		return $this;
@@ -1048,7 +1048,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setInventoryRequestType($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->inventoryRequestType = $value;
 		}
 		return $this;
@@ -1077,7 +1077,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setOneWayShop($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->oneWayShop = $value;
 		}
 		return $this;
@@ -1106,7 +1106,7 @@ class AirPricingModifiers extends \Nette\Object
 	 */
 	public function setProhibitUnbundledFareTypes($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->prohibitUnbundledFareTypes = $value;
 		}
 		return $this;

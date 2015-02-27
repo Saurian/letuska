@@ -214,7 +214,7 @@ class SolutionGroup extends \Nette\Object
 	 */
 	public function setCount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->count = $value;
 		}
 		return $this;
@@ -279,7 +279,7 @@ class SolutionGroup extends \Nette\Object
 	 */
 	public function setDiversification($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->diversification = $value;
 		}
 		return $this;
@@ -311,7 +311,7 @@ class SolutionGroup extends \Nette\Object
 	 */
 	public function setTag($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->tag = $value;
 		}
 		return $this;
@@ -342,7 +342,7 @@ class SolutionGroup extends \Nette\Object
 	 */
 	public function setPrimary($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->primary = $value;
 		}
 		return $this;

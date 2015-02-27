@@ -37,7 +37,7 @@ class FareGuaranteeInfo extends \Nette\Object
 	 */
 	public function setGuaranteeDate($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->guaranteeDate = $value;
 		}
 		return $this;

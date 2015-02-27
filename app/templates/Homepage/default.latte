@@ -20,20 +20,20 @@
 		<h1>Letuska → devel</h1>
 		<p>Bratislava => BTS | Praha => PRG | Atlanta => ATL</p>
 
+		{*
 		<div class="panel panel-primary">
-			<div class="panel-heading" role="tab" id="headingTwo">
-				<h4 class="panel-title">
-					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-						Search type #2 ParamSearchForm
-					</a>
-				</h4>
+			<div class="panel-heading">
+				<h4 class="panel-title">Search type #2 ParamSearchForm</h4>
 			</div>
 			<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
 				<div class="panel-body">
-					<p>Auto search from params</p>
+					{snippet form}
+					{control lowFareSearchForm}
+					{/snippet}
 				</div>
 			</div>
 		</div>
+		*}
 	</div>
 	<div class="row">
 		<div class="progress">
@@ -44,9 +44,9 @@
 			<div class="panel-heading">
 				<h4 class="panel-title text-center">Result</h4>
 			</div>
-			{snippet resultParams}
-			<div class="panel-body" n:ifset="$flightParamDetails">
-				{include "_flightList.latte", flights => $flightParamDetails}
+			{snippet result}
+			<div class="panel-body" n:ifset="$flightDetails">
+				{include "_flightList.latte", flights => $flightDetails}
 			</div>
 			{/snippet}
 		</div>

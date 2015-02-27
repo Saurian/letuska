@@ -39,7 +39,7 @@ class ApplicationLevelAType extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $providerDefinedApplicableLevels;
 
@@ -127,7 +127,7 @@ class ApplicationLevelAType extends \Nette\Object
 	 */
 	public function setApplicableLevels($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->applicableLevels = $value;
 		}
 		return $this;
@@ -156,7 +156,7 @@ class ApplicationLevelAType extends \Nette\Object
 	 */
 	public function setProviderDefinedApplicableLevels($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerDefinedApplicableLevels = $value;
 		}
 		return $this;

@@ -29,7 +29,7 @@ class FeeInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $baseAmount;
 
@@ -37,7 +37,7 @@ class FeeInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $description;
 
@@ -45,7 +45,7 @@ class FeeInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $subCode;
 
@@ -59,7 +59,7 @@ class FeeInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeMoneyType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $amount;
 
@@ -67,7 +67,7 @@ class FeeInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $code;
 
@@ -75,7 +75,7 @@ class FeeInfo extends \Nette\Object
 	 * @attribute
 	 * @var string @value
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $feeToken;
 
@@ -103,21 +103,21 @@ class FeeInfo extends \Nette\Object
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeProviderCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $providerCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeSupplierCodeType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Air
 	 */
 	protected $supplierCode;
 
 	/**
 	 * @attribute
 	 * @var \TravelPortModule\Common\TypeElementStatusType
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $elStat;
 
@@ -125,7 +125,7 @@ class FeeInfo extends \Nette\Object
 	 * @attribute
 	 * @var boolean
 	 *
-	 * @xsdns TravelPortModule\Rail
+	 * @xsdns TravelPortModule\Common
 	 */
 	protected $keyOverride;
 
@@ -191,7 +191,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setBaseAmount($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->baseAmount = $value;
 		}
 		return $this;
@@ -218,7 +218,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setDescription($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->description = $value;
 		}
 		return $this;
@@ -245,7 +245,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setSubCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->subCode = $value;
 		}
 		return $this;
@@ -347,7 +347,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setFeeToken($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->feeToken = $value;
 		}
 		return $this;
@@ -376,7 +376,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setPaymentRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->paymentRef = $value;
 		}
 		return $this;
@@ -406,7 +406,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setBookingTravelerRef($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->bookingTravelerRef = $value;
 		}
 		return $this;
@@ -434,7 +434,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setPassengerTypeCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->passengerTypeCode = $value;
 		}
 		return $this;
@@ -461,7 +461,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setProviderCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->providerCode = $value;
 		}
 		return $this;
@@ -488,7 +488,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setSupplierCode($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->supplierCode = $value;
 		}
 		return $this;
@@ -517,7 +517,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setElStat($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->elStat = $value;
 		}
 		return $this;
@@ -547,7 +547,7 @@ class FeeInfo extends \Nette\Object
 	 */
 	public function setKeyOverride($value = NULL)
 	{
-		if ($value) {
+		if (NULL !== $value) {
 		    $this->keyOverride = $value;
 		}
 		return $this;
